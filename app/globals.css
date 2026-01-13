@@ -17,6 +17,7 @@
   If we ever want to remove these styles, we can add `border-gray-200` to your element.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -32,7 +33,46 @@ body {
   font-family: var(--font-inter);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-manrope);
-  color: var(--color-primary); /* Default headings to primary gold/dark mix if needed, or set explicitly */
+  color: var(--color-primary);
+  /* Default headings to primary gold/dark mix if needed, or set explicitly */
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+
+  50% {
+    transform: translateY(-35px) translateX(-15px);
+  }
+
+  75% {
+    transform: translateY(-15px) translateX(15px);
+  }
+}
+
+.animate-float {
+  animation: float 10s ease-in-out infinite;
+}
+
+.photo-card-container {
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.photo-card-container:hover {
+  transform: perspective(1000px) rotateY(0deg) scale(1.05);
 }
