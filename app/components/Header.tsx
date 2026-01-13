@@ -33,15 +33,20 @@ export default function Header() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="#about" className="text-text-body hover:text-primary font-inter text-sm font-medium transition-colors">
-                        Sobre
+                    <Link href="/" className="group relative text-text-body hover:text-primary font-inter text-sm font-medium transition-colors">
+                        Início
+                        <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-primary scale-x-100 transition-transform duration-300 origin-left"></span>
                     </Link>
-                    <Link href="#services" className="text-text-body hover:text-primary font-inter text-sm font-medium transition-colors">
-                        Serviços
-                    </Link>
-                    <Link href="#contact" className="text-text-body hover:text-primary font-inter text-sm font-medium transition-colors">
-                        Contato
-                    </Link>
+                    {["Sobre", "Serviços", "Contato"].map((item) => (
+                        <Link
+                            key={item}
+                            href={`#${item.toLowerCase().replace("ç", "c").replace("õ", "o")}`}
+                            className="group relative text-text-body hover:text-primary font-inter text-sm font-medium transition-colors"
+                        >
+                            {item}
+                            <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </Link>
+                    ))}
                 </nav>
 
                 {/* Social Icons */}
