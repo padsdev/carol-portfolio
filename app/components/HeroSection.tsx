@@ -5,7 +5,7 @@ export default function HeroSection() {
     return (
         <section className="relative container mx-auto px-6 py-32 lg:py-48 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 overflow-visible">
 
-            {/* Floating Balls - Julia Style */}
+            {/* Floating Balls */}
             {/* Ball 1: Large light primary */}
             <div
                 className="absolute top-10 left-[-50px] lg:left-0 w-32 h-32 rounded-full bg-primary/10 animate-float z-0 pointer-events-none"
@@ -65,7 +65,7 @@ export default function HeroSection() {
                         className="group relative px-10 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] transform hover:-translate-y-[5px] hover:scale-[1.03] overflow-hidden"
                     >
                         <span className="relative z-10">Agendar Consulta</span>
-                        {/* Shine Effect - Julia Style */}
+                        {/* Shine Effect */}
                         <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0"></div>
                     </Link>
                     <Link
