@@ -10,12 +10,12 @@ const services = [
         title: "Terapia de Casal",
         description: "Mediação de conflitos e fortalecimento de vínculos para relacionamentos mais saudáveis.",
         icon: Users,
-    },
+    },/*
     {
         title: "Brasileiros no Exterior",
         description: "Acolhimento cultural e suporte emocional especializado para expatriados em sua língua materna.",
         icon: Globe,
-    },
+    },*/
     {
         title: "Palestras e Workshops",
         description: "Programas de saúde mental e desenvolvimento socioemocional para empresas e grupos.",
@@ -35,7 +35,7 @@ export default function ServicesGrid() {
                 </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                 {services.map((service, index) => (
                     <div
                         key={index}
