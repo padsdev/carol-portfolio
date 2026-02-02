@@ -1,8 +1,8 @@
 "use client";
 
+import { Link, useTransitionRouter } from "next-view-transitions";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 
 // Custom SVG icons from Simple Icons (replacing deprecated Lucide brand icons)
@@ -29,6 +29,7 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const pathname = usePathname();
+    const router = useTransitionRouter();
 
     useEffect(() => {
         const handleScroll = () => {
