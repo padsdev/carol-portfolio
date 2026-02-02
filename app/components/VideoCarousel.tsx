@@ -103,7 +103,7 @@ export default function VideoCarousel() {
     return (
         <section ref={targetRef} className="h-[300vh] bg-background relative">
             <div className="sticky top-0 h-screen flex flex-col justify-center items-center overflow-hidden">
-                <h2 className="text-4xl md:text-5xl text-center mb-4 md:mb-12 font-manrope font-bold text-primary relative z-20">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl text-center mb-4 md:mb-12 font-manrope font-bold text-primary relative z-20 px-4">
                     Entrevistas e Palestras
                 </h2>
 

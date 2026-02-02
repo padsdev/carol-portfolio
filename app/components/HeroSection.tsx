@@ -3,12 +3,12 @@ import Image from "next/image";
 
 export default function HeroSection() {
     return (
-        <section className="relative container mx-auto px-6 py-32 lg:py-48 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 overflow-visible">
+        <section className="relative container mx-auto px-6 py-32 lg:py-48 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 overflow-hidden">
 
             {/* Floating Balls */}
             {/* Ball 1: Large light primary */}
             <div
-                className="absolute top-10 left-[-50px] lg:left-0 w-32 h-32 rounded-full bg-primary/10 animate-float z-0 pointer-events-none"
+                className="absolute top-10 left-0 w-32 h-32 rounded-full bg-primary/10 animate-float z-0 pointer-events-none"
                 style={{ animationDelay: '0s' }}
             ></div>
             {/* Ball 2: Small dark accent */}
@@ -69,7 +69,7 @@ export default function HeroSection() {
                         <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0"></div>
                     </Link>
                     <Link
-                        href="#about"
+                        href="/sobre"
                         className="px-10 py-5 rounded-full border-2 border-[#4B4B47] text-[#4B4B47] font-bold font-manrope hover:bg-[#4B4B47] hover:text-white transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03] hover:-translate-y-[5px]"
                     >
                         Sobre Mim

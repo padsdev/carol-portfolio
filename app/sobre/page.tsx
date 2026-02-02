@@ -6,11 +6,11 @@ export default function SobrePage() {
     return (
         <main className="min-h-screen pt-20">
             {/* Hero Section - About (Layout invertido: texto à esquerda, foto à direita com parallax) */}
-            <section className="relative container mx-auto px-6 py-16 md:py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 overflow-visible">
+            <section className="relative container mx-auto px-6 py-16 md:py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 overflow-hidden">
 
                 {/* Floating Balls - Decorative elements */}
                 <div
-                    className="absolute top-10 right-[-50px] lg:right-0 w-32 h-32 rounded-full bg-primary/10 animate-float z-0 pointer-events-none"
+                    className="absolute top-10 right-0 w-32 h-32 rounded-full bg-primary/10 animate-float z-0 pointer-events-none"
                     style={{ animationDelay: '0s' }}
                 ></div>
                 <div
