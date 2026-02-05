@@ -32,12 +32,42 @@ export default function Header() {
     const router = useTransitionRouter();
 
     useEffect(() => {
+        // Reset scroll state when navigating to a new page
+        setIsScrolled(false);
+
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            // Check window scroll (for normal pages like Home)
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+                return;
+            }
+
+            // Also check scroll-snap-container scroll (for pages like Sobre)
+            const snapContainer = document.querySelector('.scroll-snap-container');
+            if (snapContainer && snapContainer.scrollTop > 50) {
+                setIsScrolled(true);
+                return;
+            }
+
+            setIsScrolled(false);
         };
+
+        // Listen to window scroll
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+
+        // Also listen to scroll-snap-container if it exists
+        const snapContainer = document.querySelector('.scroll-snap-container');
+        if (snapContainer) {
+            snapContainer.addEventListener("scroll", handleScroll);
+        }
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            if (snapContainer) {
+                snapContainer.removeEventListener("scroll", handleScroll);
+            }
+        };
+    }, [pathname]);
 
     // Lock body scroll when menu is open
     useEffect(() => {
@@ -82,7 +112,7 @@ export default function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
                     }`}
             >
                 <div className="container mx-auto px-6 flex items-center justify-between">

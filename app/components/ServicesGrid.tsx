@@ -27,7 +27,7 @@ export default function ServicesGrid() {
     return (
         <section className="container mx-auto px-6 py-20" id="services">
             <div className="text-center mb-16">
-                <h3 className="text-primary font-bold tracking-widest uppercase text-sm mb-2 font-manrope">
+                <h3 className="text-primary font-bold tracking-widest uppercase text-sm mb-2 font-manrope mt-15">
                     Áreas de Atuação
                 </h3>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[#435770] font-manrope">

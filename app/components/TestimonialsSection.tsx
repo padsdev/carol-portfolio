@@ -31,8 +31,8 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
     return (
-        <section className="py-20 bg-secondary/30">
-            <div className="container mx-auto px-4">
+        <section className="py-20 bg-secondary/30 flex-1 flex flex-col">
+            <div className="container mx-auto px-4 my-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-manrope font-bold text-primary mb-4">
                         Depoimentos
