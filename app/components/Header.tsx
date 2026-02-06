@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, useTransitionRouter } from "next-view-transitions";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 
@@ -28,6 +28,7 @@ export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const pathname = usePathname();
     const router = useTransitionRouter();
 
@@ -81,13 +82,30 @@ export default function Header() {
         };
     }, [isMobileMenuOpen]);
 
+    useEffect(() => {
+        return () => {
+            if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+            }
+        };
+    }, []);
+
+    const clearCloseTimeout = () => {
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+    };
+
     const handleMenuToggle = () => {
         if (isMobileMenuOpen) {
             // Start closing animation
             setIsClosing(true);
-            setTimeout(() => {
+            clearCloseTimeout();
+            closeTimeoutRef.current = setTimeout(() => {
                 setIsMobileMenuOpen(false);
                 setIsClosing(false);
+                closeTimeoutRef.current = null;
             }, 300);
         } else {
             setIsMobileMenuOpen(true);
@@ -96,9 +114,11 @@ export default function Header() {
 
     const handleMenuClose = () => {
         setIsClosing(true);
-        setTimeout(() => {
+        clearCloseTimeout();
+        closeTimeoutRef.current = setTimeout(() => {
             setIsMobileMenuOpen(false);
             setIsClosing(false);
+            closeTimeoutRef.current = null;
         }, 300);
     };
 
