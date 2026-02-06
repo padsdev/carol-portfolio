@@ -2,21 +2,25 @@ import { User, Users, Globe, Mic2 } from "lucide-react";
 
 const services = [
     {
+        id: "terapia-individual",
         title: "Terapia Individual",
         description: "Espaço seguro para autoconhecimento e tratamento de ansiedade, depressão e outros conflitos.",
         icon: User,
     },
     {
+        id: "terapia-casal",
         title: "Terapia de Casal",
         description: "Mediação de conflitos e fortalecimento de vínculos para relacionamentos mais saudáveis.",
         icon: Users,
     },/*
     {
+        id: "brasileiros-exterior",
         title: "Brasileiros no Exterior",
         description: "Acolhimento cultural e suporte emocional especializado para expatriados em sua língua materna.",
         icon: Globe,
     },*/
     {
+        id: "palestras-workshops",
         title: "Palestras e Workshops",
         description: "Programas de saúde mental e desenvolvimento socioemocional para empresas e grupos.",
         icon: Mic2,
@@ -36,9 +40,9 @@ export default function ServicesGrid() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <div
-                        key={index}
+                        key={service.id}
                         className="group bg-surface rounded-[40px] p-8 shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 border border-transparent hover:border-primary/20 flex flex-col items-center text-center"
                     >
                         <div className="w-16 h-16 rounded-2xl bg-secondary/20 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
