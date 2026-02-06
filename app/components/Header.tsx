@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, useTransitionRouter } from "next-view-transitions";
+import { Link } from "next-view-transitions";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
@@ -30,12 +30,8 @@ export default function Header() {
     const [isClosing, setIsClosing] = useState(false);
     const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const pathname = usePathname();
-    const router = useTransitionRouter();
 
     useEffect(() => {
-        // Reset scroll state when navigating to a new page
-        setIsScrolled(false);
-
         const handleScroll = () => {
             // Check window scroll (for normal pages like Home)
             if (window.scrollY > 50) {
@@ -61,6 +57,9 @@ export default function Header() {
         if (snapContainer) {
             snapContainer.addEventListener("scroll", handleScroll);
         }
+
+        // Check initial scroll state on mount/navigation
+        handleScroll();
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
