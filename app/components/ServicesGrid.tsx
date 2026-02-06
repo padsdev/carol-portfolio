@@ -1,4 +1,4 @@
-import { User, Users, Globe, Mic2 } from "lucide-react";
+import { User, Users, Mic2 } from "lucide-react";
 
 const services = [
     {
@@ -10,12 +10,7 @@ const services = [
         title: "Terapia de Casal",
         description: "Mediação de conflitos e fortalecimento de vínculos para relacionamentos mais saudáveis.",
         icon: Users,
-    },/*
-    {
-        title: "Brasileiros no Exterior",
-        description: "Acolhimento cultural e suporte emocional especializado para expatriados em sua língua materna.",
-        icon: Globe,
-    },*/
+    },
     {
         title: "Palestras e Workshops",
         description: "Programas de saúde mental e desenvolvimento socioemocional para empresas e grupos.",
