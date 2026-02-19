@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "next-view-transitions";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 
@@ -27,8 +27,6 @@ const LattesIcon = ({ size = 20 }: { size?: number }) => (
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isClosing, setIsClosing] = useState(false);
-    const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -81,44 +79,12 @@ export default function Header() {
         };
     }, [isMobileMenuOpen]);
 
-    useEffect(() => {
-        return () => {
-            if (closeTimeoutRef.current) {
-                clearTimeout(closeTimeoutRef.current);
-            }
-        };
-    }, []);
-
-    const clearCloseTimeout = () => {
-        if (closeTimeoutRef.current) {
-            clearTimeout(closeTimeoutRef.current);
-            closeTimeoutRef.current = null;
-        }
-    };
-
     const handleMenuToggle = () => {
-        if (isMobileMenuOpen) {
-            // Start closing animation
-            setIsClosing(true);
-            clearCloseTimeout();
-            closeTimeoutRef.current = setTimeout(() => {
-                setIsMobileMenuOpen(false);
-                setIsClosing(false);
-                closeTimeoutRef.current = null;
-            }, 300);
-        } else {
-            setIsMobileMenuOpen(true);
-        }
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     const handleMenuClose = () => {
-        setIsClosing(true);
-        clearCloseTimeout();
-        closeTimeoutRef.current = setTimeout(() => {
-            setIsMobileMenuOpen(false);
-            setIsClosing(false);
-            closeTimeoutRef.current = null;
-        }, 300);
+        setIsMobileMenuOpen(false);
     };
 
     const menuItems = [
@@ -131,11 +97,11 @@ export default function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+                className={`fixed top-0 left-0 right-0 transition-[background-color,padding,box-shadow] duration-300 ${isMobileMenuOpen ? 'z-[103]' : 'z-[100]'} ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
                     }`}
             >
                 <div className="container mx-auto px-6 flex items-center justify-between">
-                    <Link href="/" className="flex flex-col">
+                    <Link href="/" className={`flex flex-col ${isMobileMenuOpen ? 'max-md:invisible' : ''}`}>
                         <span className={`font-manrope font-extrabold text-xl tracking-wider ${isScrolled ? "text-primary" : "text-primary/90"}`}>
                             CAROLINE ASSIS
                         </span>
@@ -181,7 +147,7 @@ export default function Header() {
 
                     {/* Animated Hamburger Button */}
                     <button
-                        className={`md:hidden relative w-8 h-8 flex flex-col items-center justify-center text-text-body ${isMobileMenuOpen && !isClosing ? 'hamburger-active' : ''}`}
+                        className={`md:hidden relative w-8 h-8 flex flex-col items-center justify-center text-text-body ${isMobileMenuOpen ? 'hamburger-active' : ''}`}
                         onClick={handleMenuToggle}
                         aria-label="Menu"
                     >
@@ -197,26 +163,16 @@ export default function Header() {
                 <>
                     {/* Overlay */}
                     <div
-                        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden ${isClosing ? 'overlay-exit' : 'overlay-enter'}`}
+                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[101] md:hidden overlay-enter"
                         onClick={handleMenuClose}
                     />
 
                     {/* Menu Panel */}
                     <div
-                        className={`fixed top-0 right-0 h-full w-[75%] max-w-sm bg-white z-50 md:hidden shadow-2xl ${isClosing ? 'mobile-menu-exit' : 'mobile-menu-enter'}`}
+                        className="fixed top-0 right-0 h-full w-[75%] max-w-sm bg-white z-[102] md:hidden shadow-2xl"
                     >
-                        {/* Close Button */}
-                        <div className="flex justify-end p-6">
-                            <button
-                                className={`w-8 h-8 flex flex-col items-center justify-center text-text-body hamburger-active`}
-                                onClick={handleMenuClose}
-                                aria-label="Fechar menu"
-                            >
-                                <span className="hamburger-bar"></span>
-                                <span className="hamburger-bar"></span>
-                                <span className="hamburger-bar"></span>
-                            </button>
-                        </div>
+                        {/* Spacer to match header height */}
+                        <div className="h-20" />
 
                         {/* Menu Content */}
                         <nav className="flex flex-col px-8 pt-4">

@@ -8,16 +8,10 @@ import { GraduationCap, Building2, BookOpen, Users, Heart, Globe, ArrowRight, Aw
 export default function SobrePage() {
     return (
         <main
-            style={{
-                height: '100vh',
-                overflowY: 'scroll',
-                scrollSnapType: 'y mandatory',
-            }}
             className="scroll-snap-container"
         >
             {/* Hero Section - About */}
             <section
-                style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always', minHeight: '100vh' }}
                 className="snap-section relative bg-background"
             >
                 <div className="container mx-auto px-6 pt-24 pb-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -103,7 +97,6 @@ export default function SobrePage() {
 
             {/* Experiência e Rigor Acadêmico */}
             <section
-                style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always', minHeight: '100vh' }}
                 className="snap-section bg-white"
             >
                 <div className="container mx-auto px-6 py-8">
@@ -181,7 +174,6 @@ export default function SobrePage() {
 
             {/* Por que escolher meu acompanhamento */}
             <section
-                style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always', minHeight: '100vh' }}
                 className="snap-section bg-gradient-to-b from-background to-secondary/30"
             >
                 <div className="container mx-auto px-6 py-8">
@@ -283,7 +275,6 @@ export default function SobrePage() {
 
             {/* Serviços Section */}
             <section
-                style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always', minHeight: '100vh' }}
                 className="snap-section bg-white"
             >
                 <div className="container mx-auto px-6 py-8">
@@ -382,7 +373,6 @@ export default function SobrePage() {
 
             {/* CTA Section */}
             <section
-                style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always', minHeight: '100vh' }}
                 className="snap-section bg-[#2B2B27] relative overflow-hidden"
             >
                 {/* Decorative Elements */}
@@ -424,7 +414,6 @@ export default function SobrePage() {
 
             {/* Testimonials + Footer */}
             <section
-                style={{ scrollSnapAlign: 'start', minHeight: '100vh' }}
                 className="snap-section-auto flex flex-col justify-between"
             >
                 <div className="flex-grow flex flex-col">
