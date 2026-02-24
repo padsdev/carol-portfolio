@@ -2,6 +2,8 @@
 
 import { Star, ExternalLink } from "lucide-react"
 
+const STAR_KEYS = ["s1", "s2", "s3", "s4", "s5"] as const
+
 const TESTIMONIALS = [
     {
         id: 1,
@@ -40,8 +42,8 @@ export default function TestimonialsSection() {
                     <div className="flex items-center justify-center gap-2 text-text-body/80 font-inter font-medium">
                         <span className="flex items-center gap-1">
                             5.0
-                            {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
+                            {STAR_KEYS.map((starKey) => (
+                                <Star key={`header-${starKey}`} className="w-4 h-4 text-yellow-500 fill-current" />
                             ))}
                         </span>
                         <span>no Google Maps</span>
@@ -84,9 +86,9 @@ export default function TestimonialsSection() {
                                 </div>
                             </div>
                             <div className="flex mb-3">
-                                {[...Array(testimonial.rating)].map((_, i) => (
+                                {STAR_KEYS.slice(0, testimonial.rating).map((starKey) => (
                                     <Star
-                                        key={i}
+                                        key={`rating-${testimonial.id}-${starKey}`}
                                         className="w-4 h-4 text-yellow-400 fill-current"
                                     />
                                 ))}

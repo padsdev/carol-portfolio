@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4a4a43] text-[#ebeee3] font-[family-name:var(--font-lato)]">
+    <footer className="bg-[#4a4a43] text-[#ebeee3] font-inter">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center h-auto md:h-[195px] py-8 md:py-0">
           {/* Logo & Info */}
@@ -13,6 +13,7 @@ export default function Footer() {
                 src="/instituto-versar-logo.png"
                 alt="Instituto Versar"
                 fill
+                sizes="216px"
                 className="object-contain"
               />
             </div>
@@ -25,7 +26,7 @@ export default function Footer() {
 
           {/* Address */}
           <div className="text-center mb-8 md:mb-0 px-6">
-            <h5 className="text-4xl font-normal text-[#ebeee3] mb-2 font-[family-name:var(--font-cormorant)]">
+            <h5 className="text-4xl font-normal text-[#ebeee3] mb-2 font-manrope">
               Endereço:
             </h5>
             <p className="text-[#ebeee3] text-lg leading-relaxed max-w-[250px] mx-auto">
@@ -39,7 +40,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="text-center md:text-right">
-            <h5 className="text-4xl font-normal text-[#ebeee3] mb-2 font-[family-name:var(--font-cormorant)]">
+            <h5 className="text-4xl font-normal text-[#ebeee3] mb-2 font-manrope">
               Contato
             </h5>
             <div className="space-y-1 text-lg flex flex-col items-center md:items-end">

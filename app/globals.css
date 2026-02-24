@@ -279,3 +279,45 @@ h6 {
     min-height: auto;
   }
 }
+
+/* ===== Accessibility: Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float {
+    animation: none;
+  }
+
+  .scroll-indicator {
+    animation: none;
+  }
+
+  .photo-card-container,
+  .photo-card-container-sobre {
+    transform: none;
+    transition: none;
+  }
+
+  .photo-card-container:hover,
+  .photo-card-container-sobre:hover {
+    transform: none;
+  }
+
+  .menu-item {
+    opacity: 1;
+    animation: none;
+  }
+
+  .overlay-enter,
+  .overlay-exit {
+    animation: none;
+  }
+}

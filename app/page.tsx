@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import HeroSection from "./components/HeroSection";
 import ServicesGrid from "./components/ServicesGrid";
 import Footer from "./components/Footer";
+
+export const metadata: Metadata = {
+  title: "Caroline Assis - Psicóloga Clínica",
+  description:
+    "Psicóloga Caroline Assis - Terapia cognitivo-comportamental e atendimento especializado a brasileiros no exterior. Agende sua consulta.",
+};
 
 export default function Home() {
   return (

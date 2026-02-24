@@ -1,7 +1,7 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { motion, useScroll, useTransform, useSpring, type MotionValue, AnimatePresence } from "framer-motion"
+import { useRef, useState, useCallback } from "react"
+import { LazyMotion, domAnimation, m, useScroll, useTransform, useSpring, type MotionValue, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { X } from "lucide-react"
 
@@ -55,21 +55,37 @@ function VideoCard({
     const scaleSpring = useSpring(scale, { stiffness: 200, damping: 20 })
     const opacitySpring = useSpring(opacity, { stiffness: 200, damping: 20 })
 
+    const handlePlay = useCallback(() => {
+        onPlay(video.videoId)
+    }, [onPlay, video.videoId])
+
+    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            onPlay(video.videoId)
+        }
+    }, [onPlay, video.videoId])
+
     return (
-        <motion.div
+        <m.div
             style={{
                 scale: scaleSpring,
                 opacity: opacitySpring,
                 zIndex,
             }}
             className="flex-shrink-0 w-[70vw] md:w-[45vw] max-w-[700px] aspect-video relative rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
-            onClick={() => onPlay(video.videoId)}
+            role="button"
+            tabIndex={0}
+            aria-label={`Assistir: ${video.title}`}
+            onClick={handlePlay}
+            onKeyDown={handleKeyDown}
         >
             <div className="block w-full h-full relative group">
                 <Image
                     src={video.thumbnail}
                     alt={video.title}
                     fill
+                    sizes="(max-width: 768px) 70vw, 45vw"
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -85,7 +101,7 @@ function VideoCard({
                     </h3>
                 </div>
             </div>
-        </motion.div>
+        </m.div>
     )
 }
 
@@ -100,62 +116,85 @@ export default function VideoCarousel() {
 
     const x = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"])
 
+    const handleCloseModal = useCallback(() => {
+        setSelectedVideo(null)
+    }, [])
+
+    const handleOverlayKeyDown = useCallback((e: React.KeyboardEvent) => {
+        if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+            setSelectedVideo(null)
+        }
+    }, [])
+
+    const selectedVideoTitle = selectedVideo
+        ? VIDEOS.find(v => v.videoId === selectedVideo)?.title ?? "Vídeo"
+        : "Vídeo"
+
     return (
-        <section ref={targetRef} className="h-[300vh] bg-background relative">
-            <div className="sticky top-0 h-screen flex flex-col justify-center items-center overflow-hidden">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl text-center mb-4 md:mb-12 font-manrope font-bold text-primary relative z-20 px-4">
-                    Entrevistas e Palestras
-                </h2>
+        <LazyMotion features={domAnimation}>
+            <section ref={targetRef} className="h-[300vh] bg-background relative">
+                <div className="sticky top-0 h-screen flex flex-col justify-center items-center overflow-hidden">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl text-center mb-4 md:mb-12 font-manrope font-bold text-primary relative z-20 px-4">
+                        Entrevistas e Palestras
+                    </h2>
 
-                <motion.div
-                    style={{ x }}
-                    className="flex items-center w-max gap-4 md:gap-8 px-4"
-                >
-                    {VIDEOS.map((video, idx) => (
-                        <VideoCard
-                            key={video.id}
-                            video={video}
-                            index={idx}
-                            scrollProgress={scrollYProgress}
-                            onPlay={setSelectedVideo}
-                        />
-                    ))}
-                </motion.div>
-
-                <p className="text-text-body/60 text-sm mt-8 animate-bounce relative z-20 font-inter">
-                    Role para ver mais
-                </p>
-            </div>
-
-            <AnimatePresence>
-                {selectedVideo && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-                        onClick={() => setSelectedVideo(null)}
+                    <m.div
+                        style={{ x }}
+                        className="flex items-center w-max gap-4 md:gap-8 px-4"
                     >
-                        <div
-                            className="relative w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <button
-                                onClick={() => setSelectedVideo(null)}
-                                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
-                            >
-                                <X className="w-6 h-6" />
-                            </button>
-                            <iframe
-                                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0`}
-                                className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                        {VIDEOS.map((video, idx) => (
+                            <VideoCard
+                                key={video.id}
+                                video={video}
+                                index={idx}
+                                scrollProgress={scrollYProgress}
+                                onPlay={setSelectedVideo}
                             />
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </section>
+                        ))}
+                    </m.div>
+
+                    <p className="text-text-body/60 text-sm mt-8 animate-bounce relative z-20 font-inter">
+                        Role para ver mais
+                    </p>
+                </div>
+
+                <AnimatePresence>
+                    {selectedVideo && (
+                        <m.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+                            role="button"
+                            tabIndex={0}
+                            aria-label="Fechar vídeo"
+                            onClick={handleCloseModal}
+                            onKeyDown={handleOverlayKeyDown}
+                        >
+                            <div
+                                className="relative w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
+                                role="presentation"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <button
+                                    onClick={handleCloseModal}
+                                    className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                                    aria-label="Fechar vídeo"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0`}
+                                    title={selectedVideoTitle}
+                                    className="w-full h-full"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </m.div>
+                    )}
+                </AnimatePresence>
+            </section>
+        </LazyMotion>
     )
 }

@@ -31,29 +31,18 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Check window scroll (for normal pages like Home)
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-                return;
-            }
-
-            // Also check scroll-snap-container scroll (for pages like Sobre)
             const snapContainer = document.querySelector('.scroll-snap-container');
-            if (snapContainer && snapContainer.scrollTop > 50) {
-                setIsScrolled(true);
-                return;
-            }
-
-            setIsScrolled(false);
+            const scrolled = window.scrollY > 50 || (snapContainer !== null && snapContainer.scrollTop > 50);
+            setIsScrolled(scrolled);
         };
 
         // Listen to window scroll
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         // Also listen to scroll-snap-container if it exists
         const snapContainer = document.querySelector('.scroll-snap-container');
         if (snapContainer) {
-            snapContainer.addEventListener("scroll", handleScroll);
+            snapContainer.addEventListener("scroll", handleScroll, { passive: true });
         }
 
         // Check initial scroll state on mount/navigation
@@ -164,7 +153,11 @@ export default function Header() {
                     {/* Overlay */}
                     <div
                         className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[101] md:hidden overlay-enter"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Fechar menu"
                         onClick={handleMenuClose}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleMenuClose(); }}
                     />
 
                     {/* Menu Panel */}

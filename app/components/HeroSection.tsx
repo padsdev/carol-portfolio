@@ -32,6 +32,8 @@ export default function HeroSection() {
                             src="/carol-looking-left.png"
                             alt="Caroline Assis"
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            priority
                             className="object-cover"
                         />
                     </div>
