@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Caroline Assis — Psicóloga Clínica
 
-## Getting Started
+Site institucional da psicóloga **Caroline Assis**, especializada em atendimento online a brasileiros no exterior. Construído com foco em performance, acessibilidade e uma experiência visual premium.
 
-First, run the development server:
+🔗 **Produção:** _em breve_
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Visão Geral
+
+O site apresenta os serviços de psicoterapia individual e de casal, palestras, depoimentos de pacientes e um canal direto de contato via WhatsApp. O design utiliza scroll snap para uma navegação fluida em telas desktop, tons dourados e tipografia refinada para transmitir acolhimento e profissionalismo.
+
+---
+
+## 🛠️ Stack
+
+| Camada        | Tecnologia                                                          |
+| ------------- | ------------------------------------------------------------------- |
+| Framework     | [Next.js 16](https://nextjs.org/) (App Router)                     |
+| Linguagem     | TypeScript                                                          |
+| UI / Estilo   | [Tailwind CSS 4](https://tailwindcss.com/) + CSS customizado       |
+| Animações     | [Framer Motion](https://www.framer.com/motion/) · [GSAP](https://gsap.com/) |
+| Tipografia    | [Manrope](https://fonts.google.com/specimen/Manrope) · [Inter](https://fonts.google.com/specimen/Inter) (via `next/font`) |
+| Transições    | [next-view-transitions](https://github.com/shuding/next-view-transitions) |
+| Ícones        | [Lucide React](https://lucide.dev/)                                 |
+| Scroll suave  | [Lenis](https://lenis.darkroom.engineering/)                        |
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+app/
+├── page.tsx                 # Home — Hero + Grid de Serviços
+├── sobre/
+│   └── page.tsx             # Sobre — Bio, Experiência, Depoimentos
+├── servicos/
+│   └── page.tsx             # Serviços — Terapia Individual, Casal, Palestras, Vídeos
+├── contato/
+│   └── page.tsx             # Contato — Formulário inline (mailto)
+├── components/
+│   ├── Header.tsx           # Navbar com menu mobile animado
+│   ├── Footer.tsx           # Rodapé com links e créditos
+│   ├── HeroSection.tsx      # Hero da home
+│   ├── ServicesGrid.tsx     # Grid de serviços (home)
+│   ├── ServicesHero.tsx     # Hero da página de serviços
+│   ├── ServiceDetail.tsx    # Card detalhado de serviço (reutilizável)
+│   ├── PalestrasSection.tsx # Seção de palestras e workshops
+│   ├── VideosSection.tsx    # Wrapper do carrossel de vídeos
+│   ├── VideoCarousel.tsx    # Carrossel de vídeos do YouTube
+│   ├── SobreHero.tsx        # Hero da página sobre
+│   ├── AcademicSection.tsx  # Experiência acadêmica
+│   ├── WhyChooseMe.tsx      # Diferenciais
+│   ├── SobreServices.tsx    # Serviços resumidos (sobre)
+│   ├── SobreCTA.tsx         # CTA da página sobre
+│   ├── TestimonialsSection.tsx # Depoimentos de pacientes
+│   ├── ContactHero.tsx      # Hero do contato
+│   ├── ContactForm.tsx      # Formulário de contato inline
+│   └── BackToTopButton.tsx  # Botão voltar ao topo
+├── globals.css              # Tema, scroll snap, animações
+└── layout.tsx               # Layout raiz (fontes, header, ViewTransitions)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Design System
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Token              | Valor       | Uso                       |
+| ------------------ | ----------- | ------------------------- |
+| `--color-primary`  | `#D4AF37`   | Dourado — CTAs, headings  |
+| `--color-secondary`| `#E1D6C0`   | Bege claro — acentos      |
+| `--color-surface`  | `#FFFFFF`   | Cards e superfícies       |
+| `--color-text-body`| `#4B4B47`   | Texto principal           |
+| `--color-background`| `#F9F7F2`  | Fundo geral               |
 
-## Learn More
+**Fontes:** Manrope (headings) · Inter (body text)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Responsividade
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Desktop (≥ 768px):** Scroll snap (`y mandatory`) com seções full-viewport
+- **Mobile (< 768px):** Scroll snap desativado, layout com scroll contínuo
+- **Telas baixas (< 700px altura):** Snap desativado automaticamente
+- **Menu mobile:** Hamburger animado → X com itens em stagger
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ♿ Acessibilidade
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `lang="pt-BR"` no `<html>`
+- Hierarquia de headings respeitada (`h1` → `h2` → `h3`)
+- `alt` em todas as imagens; imagens decorativas com `aria-hidden`
+- `prefers-reduced-motion` desativa todas as animações
+- Links externos com `rel="noopener noreferrer"`
+
+---
+
+## 📄 Licença
+
+Projeto privado — todos os direitos reservados.

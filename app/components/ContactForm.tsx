@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react"
 import { Send, CheckCircle } from "lucide-react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
-import Image from "next/image"
 
 const subjects = [
     "Terapia Individual",

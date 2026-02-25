@@ -3,7 +3,7 @@ import ServicesHero from "../components/ServicesHero"
 import ServiceDetail from "../components/ServiceDetail"
 import PalestrasSection from "../components/PalestrasSection"
 import VideosSection from "../components/VideosSection"
-import TestimonialsSection from "../components/TestimonialsSection"
+
 import Footer from "../components/Footer"
 import BackToTopButton from "../components/BackToTopButton"
 
