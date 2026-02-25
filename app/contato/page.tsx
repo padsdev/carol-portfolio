@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import { assetPath } from "../lib/assetPath"
 import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
 
@@ -17,7 +18,7 @@ export default function ContatoPage() {
                 {/* Background Image — very transparent */}
                 <div className="absolute inset-0 pointer-events-none">
                     <Image
-                        src="/caroline-assis.png"
+                        src={assetPath("/caroline-assis.png")}
                         alt=""
                         fill
                         className="object-contain object-center opacity-[0.06]"

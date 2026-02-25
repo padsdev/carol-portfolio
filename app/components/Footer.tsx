@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { assetPath } from "../lib/assetPath"
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
             <div className="relative w-[216px] h-[98px] mb-2">
               <Image
-                src="/instituto-versar-logo.png"
+                src={assetPath("/instituto-versar-logo.png")}
                 alt="Instituto Versar"
                 fill
                 sizes="216px"

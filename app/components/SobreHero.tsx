@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { assetPath } from "../lib/assetPath"
 import { ChevronDown } from "lucide-react"
 
 export default function SobreHero() {
@@ -65,7 +66,7 @@ export default function SobreHero() {
                     <div className="photo-card-container-sobre relative aspect-[3/4] w-full max-w-sm lg:max-w-md rounded-[40px] overflow-hidden shadow-2xl bg-secondary/30 group">
                         <div className="absolute inset-0 bg-secondary flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
                             <Image
-                                src="/caroline-assis-portrait.png"
+                                src={assetPath("/caroline-assis-portrait.png")}
                                 alt="Caroline Assis - Psicóloga Clínica"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
