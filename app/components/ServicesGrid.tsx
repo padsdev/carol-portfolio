@@ -1,4 +1,5 @@
 import { User, Users, Mic2 } from "lucide-react";
+import Link from "next/link";
 
 const services = [
     {
@@ -6,18 +7,21 @@ const services = [
         title: "Terapia Individual",
         description: "Espaço seguro para autoconhecimento e tratamento de ansiedade, depressão e outros conflitos.",
         icon: User,
+        href: "/servicos#terapia-individual",
     },
     {
         id: "terapia-casal",
         title: "Terapia de Casal",
         description: "Mediação de conflitos e fortalecimento de vínculos para relacionamentos mais saudáveis.",
         icon: Users,
+        href: "/servicos#terapia-casal",
     },
     {
         id: "palestras-workshops",
         title: "Palestras e Workshops",
         description: "Programas de saúde mental e desenvolvimento socioemocional para empresas e grupos.",
         icon: Mic2,
+        href: "/servicos#palestras-workshops",
     },
 ];
 
@@ -51,10 +55,13 @@ export default function ServicesGrid() {
                             {service.description}
                         </p>
 
-                        <button className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 text-primary font-manrope font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Link
+                            href={service.href}
+                            className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 text-primary font-manrope font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300"
+                        >
                             Saiba Mais
                             <span className="block transition-transform duration-300 group-hover:translate-x-1">→</span>
-                        </button>
+                        </Link>
                     </div>
                 ))}
             </div>
