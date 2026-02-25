@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import ContactHero from "../components/ContactHero"
+import Image from "next/image"
 import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
 
@@ -11,40 +11,47 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
     return (
-        <main className="bg-background">
-            <ContactHero />
+        <main className="overflow-x-hidden">
+            {/* Main Contact Section — Full viewport with background image */}
+            <section className="relative min-h-screen flex flex-col justify-center items-center bg-background overflow-hidden">
+                {/* Background Image — very transparent */}
+                <div className="absolute inset-0 pointer-events-none">
+                    <Image
+                        src="/caroline-assis.png"
+                        alt=""
+                        fill
+                        className="object-contain object-center opacity-[0.06]"
+                        sizes="100vw"
+                        priority
+                        aria-hidden="true"
+                    />
+                    {/* Extra white wash overlay */}
+                    <div className="absolute inset-0 bg-background/40" />
+                </div>
 
-            {/* Divider */}
-            <div className="container mx-auto px-6">
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-            </div>
+                {/* Decorative blurs */}
+                <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+                <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-secondary/15 blur-3xl pointer-events-none" />
 
-            <ContactForm />
+                <div className="container mx-auto px-6 py-32 md:py-40 relative z-10">
+                    <div className="max-w-3xl mx-auto text-center">
+                        {/* Header */}
+                        <div className="mb-12">
+                            <span className="inline-block text-text-body/40 font-inter text-sm tracking-wider uppercase mb-3">
+                                /&nbsp; Entre em Contato
+                            </span>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-manrope font-extrabold text-primary leading-tight">
+                                Agende sua Consulta
+                            </h1>
+                        </div>
 
-            {/* WhatsApp CTA */}
-            <section className="py-16 md:py-20 bg-white">
-                <div className="container mx-auto px-6 text-center">
-                    <div className="max-w-2xl mx-auto">
-                        <h2 className="text-2xl md:text-3xl font-manrope font-bold text-primary mb-4">
-                            Prefere uma resposta mais rápida?
-                        </h2>
-                        <p className="text-text-body/70 font-inter text-base leading-relaxed mb-8">
-                            Entre em contato diretamente pelo WhatsApp. É o canal mais rápido
-                            para agendar sua sessão.
-                        </p>
-                        <a
-                            href="https://wa.me/message/5P5LQTNQ7ZDGC1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-3 px-12 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope text-lg shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-1 hover:scale-[1.03] overflow-hidden"
-                        >
-                            <span className="relative z-10">Falar pelo WhatsApp</span>
-                            <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0" />
-                        </a>
+                        {/* Inline Form */}
+                        <ContactForm />
                     </div>
                 </div>
             </section>
 
+            {/* Footer */}
             <Footer />
         </main>
     )
