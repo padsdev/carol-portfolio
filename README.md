@@ -2,7 +2,7 @@
 
 Site institucional da psicóloga **Caroline Assis**, especializada em atendimento online a brasileiros no exterior. Construído com foco em performance, acessibilidade e uma experiência visual premium.
 
-🔗 **Produção:** _em breve_
+🔗 **Produção:** [https://padsdev.github.io/carol-portfolio/]
 
 ---
 
