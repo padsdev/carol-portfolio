@@ -67,9 +67,9 @@ export default function ServicosPage() {
                     <VideosSection />
 
                     {/* CTA Final */}
-                    <section className="py-20 md:py-28 bg-background">
-                        <div className="container mx-auto px-6 text-center">
-                            <div className="max-w-2xl mx-auto">
+                    <section className="snap-section-auto flex flex-col justify-between pt-50">
+                        <div className="mx-auto text-center">
+                            <div className="max-w-2xl">
                                 <h2 className="text-3xl md:text-4xl font-manrope font-bold text-primary mb-6">
                                     Pronto para começar?
                                 </h2>
@@ -81,7 +81,7 @@ export default function ServicosPage() {
                                     href="https://wa.me/message/5P5LQTNQ7ZDGC1"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative inline-flex items-center gap-3 px-12 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope text-lg shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-1 hover:scale-[1.03] overflow-hidden"
+                                    className="group relative inline-flex items-center px-12 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope text-lg shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-1 hover:scale-[1.03] overflow-hidden"
                                 >
                                     <span className="relative z-10">Agendar Consulta</span>
                                     {/* Shine Effect */}
@@ -89,10 +89,9 @@ export default function ServicosPage() {
                                 </a>
                             </div>
                         </div>
+                        <Footer />
                     </section>
                 </div>
-
-                <Footer />
             </section>
 
             <BackToTopButton />
