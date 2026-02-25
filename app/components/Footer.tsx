@@ -24,17 +24,17 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Address */}
+          {/* Atendimento */}
           <div className="text-center mb-8 md:mb-0 px-6">
             <h5 className="text-4xl font-normal text-[#ebeee3] mb-2 font-manrope">
-              Endereço:
+              Atendimento
             </h5>
             <p className="text-[#ebeee3] text-lg leading-relaxed max-w-[250px] mx-auto">
-              Rua Eduardo Santos
+              100% Online
               <br />
-              Pereira, 1754 - Chácara
+              Atendimento a brasileiros
               <br />
-              Cachoeira
+              no Brasil e no exterior
             </p>
           </div>
 

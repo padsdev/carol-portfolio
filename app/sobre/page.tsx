@@ -6,6 +6,7 @@ import SobreServices from "../components/SobreServices"
 import SobreCTA from "../components/SobreCTA"
 import TestimonialsSection from "../components/TestimonialsSection"
 import Footer from "../components/Footer"
+import BackToTopButton from "../components/BackToTopButton"
 
 export const metadata: Metadata = {
     title: "Sobre - Caroline Assis | Psicóloga Clínica",
@@ -29,6 +30,8 @@ export default function SobrePage() {
                 </div>
                 <Footer />
             </section>
+
+            <BackToTopButton />
         </main>
     )
 }

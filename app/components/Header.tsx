@@ -79,8 +79,8 @@ export default function Header() {
     const menuItems = [
         { label: "Início", href: "/" },
         { label: "Sobre", href: "/sobre" },
-        { label: "Serviços", href: "#servicos" },
-        { label: "Contato", href: "#contato" },
+        { label: "Serviços", href: "/servicos" },
+        { label: "Contato", href: "/contato" },
     ];
 
     return (
