@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { assetPath } from "../lib/assetPath"
+
 import { Sparkles, Users, Globe, ChevronDown } from "lucide-react"
 
 export default function WhyChooseMe() {
@@ -78,7 +78,7 @@ export default function WhyChooseMe() {
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full overflow-hidden bg-secondary">
                                         <Image
-                                            src={assetPath("/caroline-assis-portrait.png")}
+                                            src="/caroline-assis-portrait.png"
                                             alt="Caroline Assis"
                                             width={48}
                                             height={48}
