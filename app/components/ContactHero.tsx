@@ -5,7 +5,7 @@ const contactCards = [
         icon: MessageCircle,
         title: "WhatsApp",
         subtitle: "Principal canal de agendamento",
-        info: "+55 67 99225-6922",
+        info: "+34 623 765 058",
         href: "https://wa.me/message/5P5LQTNQ7ZDGC1",
         highlight: true,
     },

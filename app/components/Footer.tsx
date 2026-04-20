@@ -52,10 +52,10 @@ export default function Footer() {
                 psi.carolineassis@gmail.com
               </Link>
               <Link
-                href="tel:+5567992256922"
+                href="tel:+34623765058"
                 className="text-[#ebeee3] hover:text-white transition-colors"
               >
-                +55 67 99225-6922
+                +34 623 765 058
               </Link>
             </div>
           </div>
