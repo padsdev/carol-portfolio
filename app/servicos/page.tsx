@@ -35,7 +35,7 @@ export default function ServicosPage() {
                     "Pasta exclusiva no Google Drive com materiais de apoio",
                 ]}
                 ctaText="Agendar Sessão"
-                ctaHref="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                ctaHref="https://wa.link/ufs2ot"
             />
 
             {/* Terapia de Casal */}
@@ -54,7 +54,7 @@ export default function ServicosPage() {
                     "Atendimento 100% online",
                 ]}
                 ctaText="Agendar Sessão"
-                ctaHref="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                ctaHref="https://wa.link/ufs2ot"
                 reversed
             />
 
@@ -78,7 +78,7 @@ export default function ServicosPage() {
                                     primeira sessão. Estou aqui para te acolher.
                                 </p>
                                 <a
-                                    href="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                                    href="https://wa.link/ufs2ot"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="group relative inline-flex items-center px-12 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope text-lg shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-1 hover:scale-[1.03] overflow-hidden"

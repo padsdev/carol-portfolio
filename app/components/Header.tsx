@@ -126,7 +126,7 @@ export default function Header() {
                         <a href="https://www.linkedin.com/in/carolineassisb/" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="LinkedIn">
                             <LinkedInIcon size={20} />
                         </a>
-                        <a href="https://wa.me/message/5P5LQTNQ7ZDGC1" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="WhatsApp">
+                        <a href="https://wa.link/ufs2ot" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="WhatsApp">
                             <MessageCircle size={20} />
                         </a>
                         <a href="http://lattes.cnpq.br/4434362741632614" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="Currículo Lattes">
@@ -189,7 +189,7 @@ export default function Header() {
                             <a href="https://www.linkedin.com/in/carolineassisb/" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="LinkedIn">
                                 <LinkedInIcon size={24} />
                             </a>
-                            <a href="https://wa.me/message/5P5LQTNQ7ZDGC1" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="WhatsApp">
+                            <a href="https://wa.link/ufs2ot" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="WhatsApp">
                                 <MessageCircle size={24} />
                             </a>
                             <a href="http://lattes.cnpq.br/4434362741632614" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="Currículo Lattes">

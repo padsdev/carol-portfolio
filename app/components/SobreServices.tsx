@@ -31,7 +31,7 @@ export default function SobreServices() {
                                 Espaço seguro para autoconhecimento. Sessões de 45min a 1h.
                             </p>
                             <a
-                                href="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                                href="https://wa.link/ufs2ot"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
@@ -55,7 +55,7 @@ export default function SobreServices() {
                                 Melhorem a comunicação e encontrem soluções juntos. 1h30min.
                             </p>
                             <a
-                                href="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                                href="https://wa.link/ufs2ot"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
@@ -79,7 +79,7 @@ export default function SobreServices() {
                                 Saúde mental para empresas: Burnout, inteligência emocional.
                             </p>
                             <a
-                                href="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                                href="https://wa.link/ufs2ot"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"

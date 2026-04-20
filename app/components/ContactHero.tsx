@@ -6,7 +6,7 @@ const contactCards = [
         title: "WhatsApp",
         subtitle: "Principal canal de agendamento",
         info: "+34 623 765 058",
-        href: "https://wa.me/message/5P5LQTNQ7ZDGC1",
+        href: "https://wa.link/ufs2ot",
         highlight: true,
     },
     {
@@ -57,8 +57,8 @@ export default function ContactHero() {
                             target={card.href.startsWith("http") ? "_blank" : undefined}
                             rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
                             className={`group relative p-8 rounded-3xl border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${card.highlight
-                                    ? "bg-primary/5 border-primary/20 hover:border-primary/40"
-                                    : "bg-white border-black/5 hover:border-primary/20"
+                                ? "bg-primary/5 border-primary/20 hover:border-primary/40"
+                                : "bg-white border-black/5 hover:border-primary/20"
                                 }`}
                         >
                             {/* Hover gradient */}

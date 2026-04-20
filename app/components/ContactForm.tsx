@@ -97,7 +97,7 @@ export default function InlineContactForm() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                            href="https://wa.link/ufs2ot"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#4B4B47] text-white font-manrope font-bold shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-0.5 hover:scale-[1.03] overflow-hidden"

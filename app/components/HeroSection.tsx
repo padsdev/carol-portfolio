@@ -64,7 +64,7 @@ export default function HeroSection() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                     <a
-                        href="https://wa.me/message/5P5LQTNQ7ZDGC1"
+                        href="https://wa.link/ufs2ot"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative px-10 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] transform hover:-translate-y-[5px] hover:scale-[1.03] overflow-hidden"
