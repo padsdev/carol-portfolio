@@ -27,6 +27,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text-body);
@@ -196,32 +200,7 @@ h6 {
   animation: fadeOut 0.25s ease forwards;
 }
 
-/* ===== Scroll Snap Container ===== */
-.scroll-snap-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Hide scrollbar but keep functionality */
-.scroll-snap-container::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-.scroll-snap-container {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-}
-
-/* Each snap section takes full viewport height */
 .snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -229,10 +208,7 @@ h6 {
   position: relative;
 }
 
-/* For sections that need more space (like testimonials), allow overflow */
 .snap-section-auto {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   min-height: 100vh;
 }
 
@@ -255,12 +231,7 @@ h6 {
   animation: scroll-bounce 2s ease-in-out infinite;
 }
 
-/* Mobile adjustments - disable snap on small screens if content overflows */
 @media (max-height: 700px) {
-  .scroll-snap-container {
-    scroll-snap-type: none;
-  }
-
   .snap-section {
     min-height: auto;
     padding-top: 2rem;
@@ -268,18 +239,9 @@ h6 {
   }
 }
 
-/* Disable scroll snap on mobile */
 @media (max-width: 767px) {
-  .scroll-snap-container {
-    scroll-snap-type: none;
-    height: auto;
-    overflow-y: auto;
-  }
-
   .snap-section,
   .snap-section-auto {
-    scroll-snap-align: unset;
-    scroll-snap-stop: unset;
     min-height: auto;
   }
 }

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function SobrePage() {
     return (
-        <main className="scroll-snap-container">
+        <main className="overflow-x-hidden">
             <SobreHero />
             <AcademicSection />
             <WhyChooseMe />

@@ -1,8 +1,9 @@
 "use client"
 
 import { useCallback, useRef } from "react"
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion"
 import { Heart, Users, Mic2 } from "lucide-react"
+import { containerVariants, itemVariants, titleVariants } from "./motionVariants"
 
 const anchors = [
     {
@@ -25,43 +26,10 @@ const anchors = [
     },
 ]
 
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.12,
-        },
-    },
-}
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: {
-            type: "spring" as const,
-            stiffness: 200,
-            damping: 20,
-        },
-    },
-}
-
-const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-        },
-    },
-}
-
 export default function ServicesHero() {
     const heroRef = useRef<HTMLElement>(null)
+    const reduceMotion = useReducedMotion()
+    const enter = reduceMotion ? false : "hidden"
 
     const scrollToSection = useCallback((targetId: string) => {
         const target = document.getElementById(targetId)
@@ -84,7 +52,7 @@ export default function ServicesHero() {
                     <m.div
                         className="text-center max-w-3xl mx-auto mb-16"
                         variants={containerVariants}
-                        initial="hidden"
+                        initial={enter}
                         animate="visible"
                     >
                         <m.span
@@ -112,7 +80,7 @@ export default function ServicesHero() {
                     <m.div
                         className="flex flex-col sm:flex-row items-center justify-center gap-5"
                         variants={containerVariants}
-                        initial="hidden"
+                        initial={enter}
                         animate="visible"
                     >
                         {anchors.map((anchor) => (

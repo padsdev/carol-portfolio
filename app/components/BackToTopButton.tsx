@@ -4,10 +4,7 @@ import { ChevronUp } from "lucide-react"
 
 export default function BackToTopButton() {
     const scrollToTop = () => {
-        const container = document.querySelector(".scroll-snap-container")
-        if (container) {
-            container.scrollTo({ top: 0, behavior: "smooth" })
-        }
+        window.scrollTo({ top: 0, behavior: "smooth" })
     }
 
     return (

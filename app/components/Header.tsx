@@ -37,28 +37,14 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const snapContainer = document.querySelector('.scroll-snap-container');
-            const scrolled = window.scrollY > 50 || (snapContainer !== null && snapContainer.scrollTop > 50);
-            setIsScrolled(scrolled);
+            setIsScrolled(window.scrollY > 50);
         };
 
-        // Listen to window scroll
         window.addEventListener("scroll", handleScroll, { passive: true });
-
-        // Also listen to scroll-snap-container if it exists
-        const snapContainer = document.querySelector('.scroll-snap-container');
-        if (snapContainer) {
-            snapContainer.addEventListener("scroll", handleScroll, { passive: true });
-        }
-
-        // Check initial scroll state on mount/navigation
         handleScroll();
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            if (snapContainer) {
-                snapContainer.removeEventListener("scroll", handleScroll);
-            }
         };
     }, [pathname]);
 

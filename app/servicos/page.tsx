@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ServicosPage() {
     return (
-        <main className="scroll-snap-container overflow-x-hidden">
+        <main className="overflow-x-hidden">
             {/* Hero — locked first screen */}
             <ServicesHero />
 

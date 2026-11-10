@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main
-      className="scroll-snap-container overflow-x-hidden"
+      className="overflow-x-hidden"
     >
       {/* Hero Section */}
       <section
