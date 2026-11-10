@@ -4,6 +4,7 @@ import { Link } from "next-view-transitions";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
+import { SECRETARIA_MESSAGE, secretariaWhatsApp } from "../atendimento/secretaria";
 
 // Custom SVG icons from Simple Icons (replacing deprecated Lucide brand icons)
 const InstagramIcon = ({ size = 20 }: { size?: number }) => (
@@ -28,6 +29,11 @@ export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+
+    // Na página de atendimento, o WhatsApp do header leva à secretaria (mesmo canal dos botões da página)
+    const whatsapp = pathname.startsWith("/atendimento")
+        ? { href: secretariaWhatsApp(SECRETARIA_MESSAGE), title: "WhatsApp da Secretaria" }
+        : { href: "https://wa.link/ufs2ot", title: "WhatsApp" };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -81,6 +87,7 @@ export default function Header() {
         { label: "Sobre", href: "/sobre" },
         { label: "Serviços", href: "/servicos" },
         { label: "Contato", href: "/contato" },
+        { label: "Atendimento", href: "/atendimento" },
     ];
 
     return (
@@ -89,9 +96,9 @@ export default function Header() {
                 className={`fixed top-0 left-0 right-0 transition-[background-color,padding,box-shadow] duration-300 ${isMobileMenuOpen ? 'z-[103]' : 'z-[100]'} ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
                     }`}
             >
-                <div className="container mx-auto px-6 flex items-center justify-between">
-                    <Link href="/" className={`flex flex-col ${isMobileMenuOpen ? 'max-md:invisible' : ''}`}>
-                        <span className={`font-manrope font-extrabold text-xl tracking-wider ${isScrolled ? "text-primary" : "text-primary/90"}`}>
+                <div className="container mx-auto px-6 flex items-center justify-between gap-4">
+                    <Link href="/" className={`flex flex-col shrink-0 ${isMobileMenuOpen ? 'max-md:invisible' : ''}`}>
+                        <span className={`font-manrope font-extrabold text-xl tracking-wider whitespace-nowrap ${isScrolled ? "text-primary" : "text-primary/90"}`}>
                             CAROLINE ASSIS
                         </span>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-text-body/70 font-inter">
@@ -100,7 +107,7 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    <nav className="hidden md:flex items-center gap-5 lg:gap-8">
                         {menuItems.map((item) => {
                             const isActive = pathname === item.href ||
                                 (item.href === "/" && pathname === "/") ||
@@ -119,14 +126,14 @@ export default function Header() {
                     </nav>
 
                     {/* Social Icons */}
-                    <div className="hidden md:flex items-center gap-4 border-l border-gray-200 pl-8">
+                    <div className="hidden md:flex items-center gap-3 lg:gap-4 border-l border-gray-200 pl-5 lg:pl-8">
                         <a href="https://www.instagram.com/psi.carolineassis/" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="Instagram">
                             <InstagramIcon size={20} />
                         </a>
                         <a href="https://www.linkedin.com/in/carolineassisb/" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="LinkedIn">
                             <LinkedInIcon size={20} />
                         </a>
-                        <a href="https://wa.link/ufs2ot" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="WhatsApp">
+                        <a href={whatsapp.href} target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title={whatsapp.title}>
                             <MessageCircle size={20} />
                         </a>
                         <a href="http://lattes.cnpq.br/4434362741632614" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors hover:scale-110 duration-200" title="Currículo Lattes">
@@ -182,14 +189,14 @@ export default function Header() {
                         </nav>
 
                         {/* Social Icons in Mobile Menu */}
-                        <div className={`menu-item stagger-5 flex items-center gap-6 px-8 pt-10`}>
+                        <div className={`menu-item stagger-6 flex items-center gap-6 px-8 pt-10`}>
                             <a href="https://www.instagram.com/psi.carolineassis/" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="Instagram">
                                 <InstagramIcon size={24} />
                             </a>
                             <a href="https://www.linkedin.com/in/carolineassisb/" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="LinkedIn">
                                 <LinkedInIcon size={24} />
                             </a>
-                            <a href="https://wa.link/ufs2ot" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="WhatsApp">
+                            <a href={whatsapp.href} target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title={whatsapp.title}>
                                 <MessageCircle size={24} />
                             </a>
                             <a href="http://lattes.cnpq.br/4434362741632614" target="_blank" rel="noopener noreferrer" className="text-text-body/60 hover:text-primary transition-colors" title="Currículo Lattes">

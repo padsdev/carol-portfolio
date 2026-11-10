@@ -163,6 +163,10 @@ h6 {
   animation-delay: 0.3s;
 }
 
+.stagger-6 {
+  animation-delay: 0.35s;
+}
+
 /* Overlay Animation */
 @keyframes fadeIn {
   from {
