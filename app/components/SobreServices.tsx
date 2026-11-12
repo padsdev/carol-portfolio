@@ -1,5 +1,6 @@
 import { Heart, Users, GraduationCap, ArrowRight, ChevronDown } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "./Reveal"
+import { AGENDA_URL, SECRETARIA_MESSAGE, secretariaWhatsApp } from "../lib/channels"
 
 export default function SobreServices() {
     return (
@@ -32,12 +33,12 @@ export default function SobreServices() {
                                 Espaço seguro para autoconhecimento. Sessões de 45min a 1h.
                             </p>
                             <a
-                                href="https://wa.link/ufs2ot"
+                                href={AGENDA_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
                             >
-                                Agendar <ArrowRight className="w-4 h-4" />
+                                Agenda Online <ArrowRight className="w-4 h-4" />
                             </a>
                         </div>
                     </RevealItem>
@@ -56,12 +57,12 @@ export default function SobreServices() {
                                 Melhorem a comunicação e encontrem soluções juntos. 1h30min.
                             </p>
                             <a
-                                href="https://wa.link/ufs2ot"
+                                href={AGENDA_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
                             >
-                                Agendar <ArrowRight className="w-4 h-4" />
+                                Agenda Online <ArrowRight className="w-4 h-4" />
                             </a>
                         </div>
                     </RevealItem>
@@ -80,12 +81,12 @@ export default function SobreServices() {
                                 Saúde mental para empresas: Burnout, inteligência emocional.
                             </p>
                             <a
-                                href="https://wa.link/ufs2ot"
+                                href={secretariaWhatsApp(SECRETARIA_MESSAGE)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
                             >
-                                Saiba mais <ArrowRight className="w-4 h-4" />
+                                Falar com a Secretaria <ArrowRight className="w-4 h-4" />
                             </a>
                         </div>
                     </RevealItem>
