@@ -5,9 +5,9 @@ import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
 
 export const metadata: Metadata = {
-    title: "Contato - Caroline Assis | Psicóloga Clínica",
+    title: "Contato - Caroline Assis | Fale com a Secretaria",
     description:
-        "Entre em contato com a psicóloga Caroline Assis. Agende sua sessão de terapia online pelo WhatsApp ou envie uma mensagem.",
+        "Fale com a Secretaria do Instituto Versar. Envie uma Triagem pelo WhatsApp ou escreva para o e-mail da clínica.",
 }
 
 export default function ContatoPage() {
@@ -39,11 +39,14 @@ export default function ContatoPage() {
                         {/* Header */}
                         <div className="mb-12">
                             <span className="inline-block text-text-body/40 font-inter text-sm tracking-wider uppercase mb-3">
-                                /&nbsp; Entre em Contato
+                                /&nbsp; Contato
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-manrope font-extrabold text-primary leading-tight">
-                                Agende sua Consulta
+                                Fale com a Secretaria
                             </h1>
+                            <p className="mt-4 text-text-body/70 font-inter text-base md:text-lg leading-relaxed">
+                                Envie uma Triagem. A Secretaria responde no WhatsApp.
+                            </p>
                         </div>
 
                         {/* Inline Form */}
