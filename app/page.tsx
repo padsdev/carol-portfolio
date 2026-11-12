@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import HeroSection from "./components/HeroSection";
 import ServicesGrid from "./components/ServicesGrid";
 import Footer from "./components/Footer";
-import BackToTopButton from "./components/BackToTopButton";
 
 export const metadata: Metadata = {
   title: "Caroline Assis - Psicóloga Clínica",
@@ -31,8 +30,6 @@ export default function Home() {
         </div>
         <Footer />
       </section>
-
-      <BackToTopButton />
     </main>
   );
 }
