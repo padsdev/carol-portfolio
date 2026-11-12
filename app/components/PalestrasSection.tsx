@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { Mic2, ArrowRight, Presentation, Brain, MessageCircleHeart } from "lucide-react"
 import { LazyMotion, domAnimation, m, useInView } from "framer-motion"
+import { SECRETARIA_MESSAGE, secretariaWhatsApp } from "../lib/channels"
 
 const solutions = [
     {
@@ -147,7 +148,7 @@ export default function PalestrasSection() {
                                         animate={isInView ? "visible" : "hidden"}
                                     >
                                         <a
-                                            href="https://wa.link/ufs2ot"
+                                            href={secretariaWhatsApp(SECRETARIA_MESSAGE)}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#4B4B47] text-white font-manrope font-bold shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-0.5 hover:scale-[1.03] overflow-hidden"

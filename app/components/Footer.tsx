@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-
+import { SECRETARIA_PHONE } from "../lib/channels"
 
 export default function Footer() {
   return (
@@ -52,10 +52,10 @@ export default function Footer() {
                 psi.carolineassis@gmail.com
               </Link>
               <Link
-                href="tel:+34623765058"
+                href={`tel:+${SECRETARIA_PHONE}`}
                 className="text-[#ebeee3] hover:text-white transition-colors"
               >
-                +34 623 765 058
+                +55 67 9836-9479
               </Link>
             </div>
           </div>

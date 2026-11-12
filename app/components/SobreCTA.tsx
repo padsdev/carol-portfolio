@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { Reveal } from "./Reveal"
+import { AGENDA_URL } from "../lib/channels"
 
 export default function SobreCTA() {
     return (
@@ -20,13 +21,13 @@ export default function SobreCTA() {
                         Juntos, podemos explorar novos caminhos e encontrar o equilíbrio necessário para uma vida mais significativa.
                     </p>
                     <a
-                        href="https://wa.link/ufs2ot"
+                        href={AGENDA_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full bg-primary text-white font-bold font-manrope shadow-xl hover:shadow-2xl hover:scale-105 hover:bg-primary/90 transition-all duration-300 overflow-hidden"
                     >
                         <span className="relative z-10 flex items-center gap-3">
-                            Agendar Consulta
+                            Escolher horário
                             <ArrowRight className="w-5 h-5" />
                         </span>
                         {/* Shine Effect */}

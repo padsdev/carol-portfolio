@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 import { containerVariants, itemVariants, titleVariants } from "./motionVariants";
+import { AGENDA_URL } from "../lib/channels";
 
 export default function HeroSection() {
     const reduceMotion = useReducedMotion();
@@ -66,9 +67,9 @@ export default function HeroSection() {
                         <span className="inline-block py-1 px-3 rounded-full bg-secondary/30 text-primary font-manrope font-bold text-sm tracking-wider uppercase mb-4">
                             CRP: 14/083109
                         </span>
-                        <h2 className="text-xl md:text-2xl font-light text-text-body font-manrope mb-2">
+                        <p className="text-xl md:text-2xl font-light text-text-body font-manrope mb-2">
                             Psicóloga Clínica
-                        </h2>
+                        </p>
                         <h1 className="text-5xl lg:text-7xl font-extrabold text-primary font-manrope leading-tight">
                             CAROLINE <br /> ASSIS
                         </h1>
@@ -87,12 +88,12 @@ export default function HeroSection() {
                         className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4"
                     >
                         <a
-                            href="https://wa.link/ufs2ot"
+                            href={AGENDA_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group relative px-10 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] transform hover:-translate-y-[5px] hover:scale-[1.03] overflow-hidden"
                         >
-                            <span className="relative z-10">Agendar Consulta</span>
+                            <span className="relative z-10">Escolher horário</span>
                             {/* Shine Effect */}
                             <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0"></div>
                         </a>
