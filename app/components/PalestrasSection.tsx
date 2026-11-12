@@ -96,7 +96,7 @@ export default function PalestrasSection() {
             <section
                 ref={sectionRef}
                 id="palestras-workshops"
-                className="snap-section bg-white"
+                className="snap-section scroll-mt-24 bg-white"
             >
                 <div className="container mx-auto px-6 py-12 md:py-0">
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">

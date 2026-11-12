@@ -15,8 +15,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://psicarolineassis.com"),
   title: "Caroline Assis - Psicóloga Clínica",
   description: "Psicóloga Caroline Assis - Terapia cognitivo-comportamental e atendimento a brasileiros no exterior.",
+  openGraph: {
+    images: ["/caroline-assis-portrait.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/caroline-assis-portrait.png"],
+  },
 };
 
 export default function RootLayout({

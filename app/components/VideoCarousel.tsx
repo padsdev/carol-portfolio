@@ -87,9 +87,26 @@ export default function VideoCarousel() {
         setSelectedVideo(null)
     }, [])
 
-    const handleOverlayKeyDown = useCallback((e: React.KeyboardEvent) => {
-        if (e.key === "Escape") setSelectedVideo(null)
-    }, [])
+    useEffect(() => {
+        if (selectedVideo) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = ""
+        }
+        return () => {
+            document.body.style.overflow = ""
+        }
+    }, [selectedVideo])
+
+    // shortcut: after iframe focus Escape belongs to YouTube; X is the way out
+    useEffect(() => {
+        if (!selectedVideo) return
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") handleCloseModal()
+        }
+        document.addEventListener("keydown", onKeyDown)
+        return () => document.removeEventListener("keydown", onKeyDown)
+    }, [selectedVideo, handleCloseModal])
 
     const selectedVideoTitle = selectedVideo
         ? VIDEOS.find((v) => v.videoId === selectedVideo)?.title ?? "Vídeo"
@@ -220,12 +237,11 @@ export default function VideoCarousel() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+                        className="fixed inset-0 z-[104] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
                         role="dialog"
                         aria-modal="true"
                         aria-label={`Reproduzindo: ${selectedVideoTitle}`}
                         onClick={handleCloseModal}
-                        onKeyDown={handleOverlayKeyDown}
                     >
                         <m.div
                             initial={{ scale: 0.9, opacity: 0 }}
