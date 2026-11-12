@@ -8,7 +8,7 @@ Site institucional da psicóloga **Caroline Assis**, especializada em atendiment
 
 ## ✨ Visão Geral
 
-O site apresenta os serviços de psicoterapia individual e de casal, palestras, depoimentos de pacientes e um canal direto de contato via WhatsApp. O design utiliza scroll snap para uma navegação fluida em telas desktop, tons dourados e tipografia refinada para transmitir acolhimento e profissionalismo.
+O site apresenta os serviços de psicoterapia individual e de casal, palestras, depoimentos de pacientes, **Agenda Online** para escolher horário e **Secretaria** para recado. O design utiliza scroll snap para uma navegação fluida em telas desktop, tons dourados e tipografia refinada para transmitir acolhimento e profissionalismo.
 
 ---
 
@@ -19,11 +19,10 @@ O site apresenta os serviços de psicoterapia individual e de casal, palestras, 
 | Framework     | [Next.js 16](https://nextjs.org/) (App Router)                     |
 | Linguagem     | TypeScript                                                          |
 | UI / Estilo   | [Tailwind CSS 4](https://tailwindcss.com/) + CSS customizado       |
-| Animações     | [Framer Motion](https://www.framer.com/motion/) · [GSAP](https://gsap.com/) |
+| Animações     | [Framer Motion](https://www.framer.com/motion/)                            |
 | Tipografia    | [Manrope](https://fonts.google.com/specimen/Manrope) · [Inter](https://fonts.google.com/specimen/Inter) (via `next/font`) |
 | Transições    | [next-view-transitions](https://github.com/shuding/next-view-transitions) |
 | Ícones        | [Lucide React](https://lucide.dev/)                                 |
-| Scroll suave  | [Lenis](https://lenis.darkroom.engineering/)                        |
 
 ---
 
@@ -37,7 +36,7 @@ app/
 ├── servicos/
 │   └── page.tsx             # Serviços — Terapia Individual, Casal, Palestras, Vídeos
 ├── contato/
-│   └── page.tsx             # Contato — Formulário inline (mailto)
+│   └── page.tsx             # Contato — Triagem para a Secretaria
 ├── components/
 │   ├── Header.tsx           # Navbar com menu mobile animado
 │   ├── Footer.tsx           # Rodapé com links e créditos
@@ -54,8 +53,7 @@ app/
 │   ├── SobreServices.tsx    # Serviços resumidos (sobre)
 │   ├── SobreCTA.tsx         # CTA da página sobre
 │   ├── TestimonialsSection.tsx # Depoimentos de pacientes
-│   ├── ContactHero.tsx      # Hero do contato
-│   ├── ContactForm.tsx      # Formulário de contato inline
+│   ├── ContactForm.tsx      # Triagem (Contato → Secretaria)
 │   └── BackToTopButton.tsx  # Botão voltar ao topo
 ├── globals.css              # Tema, scroll snap, animações
 └── layout.tsx               # Layout raiz (fontes, header, ViewTransitions)
