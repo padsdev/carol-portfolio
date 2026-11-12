@@ -1,5 +1,6 @@
 import { User, Users, Mic2 } from "lucide-react";
 import Link from "next/link";
+import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 
 const services = [
     {
@@ -28,18 +29,18 @@ const services = [
 export default function ServicesGrid() {
     return (
         <section className="container mx-auto px-6 py-20" id="services">
-            <div className="text-center mb-16">
+            <Reveal className="text-center mb-16">
                 <h3 className="text-primary font-bold tracking-widest uppercase text-sm mb-2 font-manrope mt-15">
                     Áreas de Atuação
                 </h3>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[#435770] font-manrope">
                     Como posso te ajudar?
                 </h2>
-            </div>
+            </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <RevealGroup className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                 {services.map((service) => (
-                    <div
+                    <RevealItem
                         key={service.id}
                         className="group bg-surface rounded-[40px] p-8 shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 border border-transparent hover:border-primary/20 flex flex-col items-center text-center"
                     >
@@ -62,9 +63,9 @@ export default function ServicesGrid() {
                             Saiba Mais
                             <span className="block transition-transform duration-300 group-hover:translate-x-1">→</span>
                         </Link>
-                    </div>
+                    </RevealItem>
                 ))}
-            </div>
+            </RevealGroup>
         </section>
     );
 }

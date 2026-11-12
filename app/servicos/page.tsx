@@ -6,6 +6,7 @@ import VideosSection from "../components/VideosSection"
 
 import Footer from "../components/Footer"
 import BackToTopButton from "../components/BackToTopButton"
+import { Reveal } from "../components/Reveal"
 
 export const metadata: Metadata = {
     title: "Serviços - Caroline Assis | Psicóloga Clínica",
@@ -69,7 +70,7 @@ export default function ServicosPage() {
                     {/* CTA Final */}
                     <section className="snap-section-auto flex flex-col justify-between pt-50">
                         <div className="mx-auto text-center">
-                            <div className="max-w-2xl">
+                            <Reveal className="max-w-2xl">
                                 <h2 className="text-3xl md:text-4xl font-manrope font-bold text-primary mb-6">
                                     Pronto para começar?
                                 </h2>
@@ -87,7 +88,7 @@ export default function ServicosPage() {
                                     {/* Shine Effect */}
                                     <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0" />
                                 </a>
-                            </div>
+                            </Reveal>
                         </div>
                         <Footer />
                     </section>
