@@ -30,10 +30,10 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
-    // Na página de atendimento, o WhatsApp do header leva à secretaria (mesmo canal dos botões da página)
-    const whatsapp = pathname.startsWith("/atendimento")
-        ? { href: secretariaWhatsApp(SECRETARIA_MESSAGE), title: "WhatsApp da Secretaria" }
-        : { href: "https://wa.link/ufs2ot", title: "WhatsApp" };
+    const whatsapp = {
+        href: secretariaWhatsApp(SECRETARIA_MESSAGE),
+        title: "WhatsApp da Secretaria",
+    };
 
     useEffect(() => {
         const handleScroll = () => {

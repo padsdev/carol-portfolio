@@ -7,6 +7,7 @@ import VideosSection from "../components/VideosSection"
 import Footer from "../components/Footer"
 import BackToTopButton from "../components/BackToTopButton"
 import { Reveal } from "../components/Reveal"
+import { AGENDA_URL } from "../lib/channels"
 
 export const metadata: Metadata = {
     title: "Serviços - Caroline Assis | Psicóloga Clínica",
@@ -35,8 +36,8 @@ export default function ServicosPage() {
                     "Plano terapêutico personalizado com abordagem TCC",
                     "Pasta exclusiva no Google Drive com materiais de apoio",
                 ]}
-                ctaText="Agendar Sessão"
-                ctaHref="https://wa.link/ufs2ot"
+                ctaText="Escolher horário"
+                ctaHref={AGENDA_URL}
             />
 
             {/* Terapia de Casal */}
@@ -54,8 +55,8 @@ export default function ServicosPage() {
                     "Ferramentas práticas para fortalecer o vínculo na rotina",
                     "Atendimento 100% online",
                 ]}
-                ctaText="Agendar Sessão"
-                ctaHref="https://wa.link/ufs2ot"
+                ctaText="Escolher horário"
+                ctaHref={AGENDA_URL}
                 reversed
             />
 
@@ -79,12 +80,12 @@ export default function ServicosPage() {
                                     primeira sessão. Estou aqui para te acolher.
                                 </p>
                                 <a
-                                    href="https://wa.link/ufs2ot"
+                                    href={AGENDA_URL}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="group relative inline-flex items-center px-12 py-5 rounded-full bg-[#4B4B47] text-white font-bold font-manrope text-lg shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-all duration-400 hover:-translate-y-1 hover:scale-[1.03] overflow-hidden"
                                 >
-                                    <span className="relative z-10">Agendar Consulta</span>
+                                    <span className="relative z-10">Escolher horário</span>
                                     {/* Shine Effect */}
                                     <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0" />
                                 </a>
