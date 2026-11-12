@@ -28,7 +28,7 @@ const services = [
 
 export default function ServicesGrid() {
     return (
-        <section className="container mx-auto px-6 py-20" id="services">
+        <section className="container mx-auto scroll-mt-24 px-6 py-20" id="services">
             <Reveal className="text-center mb-16">
                 <h3 className="text-primary font-bold tracking-widest uppercase text-sm mb-2 font-manrope mt-15">
                     Áreas de Atuação

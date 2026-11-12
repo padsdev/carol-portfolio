@@ -128,7 +128,7 @@ export default function ServiceDetail({
             <section
                 ref={sectionRef}
                 id={id}
-                className="snap-section bg-background"
+                className="snap-section scroll-mt-24 bg-background"
             >
                 <div className="container mx-auto px-6 py-12 md:py-0">
                     <div
