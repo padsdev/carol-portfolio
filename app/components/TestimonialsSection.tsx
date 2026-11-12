@@ -1,6 +1,7 @@
 "use client"
 
 import { Star, ExternalLink } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "./Reveal"
 
 const STAR_KEYS = ["s1", "s2", "s3", "s4", "s5"] as const
 
@@ -35,7 +36,7 @@ export default function TestimonialsSection() {
     return (
         <section className="py-20 bg-secondary/30 flex-1 flex flex-col">
             <div className="container mx-auto px-4 my-auto">
-                <div className="text-center mb-12">
+                <Reveal className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-manrope font-bold text-primary mb-4">
                         Depoimentos
                     </h2>
@@ -48,11 +49,11 @@ export default function TestimonialsSection() {
                         </span>
                         <span>no Google Maps</span>
                     </div>
-                </div>
+                </Reveal>
 
-                <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <RevealGroup className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     {TESTIMONIALS.map((testimonial) => (
-                        <div
+                        <RevealItem
                             key={testimonial.id}
                             className="bg-white p-6 rounded-xl shadow-sm border border-black/5 hover:shadow-lg transition-shadow duration-300"
                         >
@@ -96,9 +97,9 @@ export default function TestimonialsSection() {
                             <p className="text-sm text-text-body/80 leading-relaxed font-inter">
                                 &ldquo;{testimonial.text}&rdquo;
                             </p>
-                        </div>
+                        </RevealItem>
                     ))}
-                </div>
+                </RevealGroup>
             </div>
         </section>
     )

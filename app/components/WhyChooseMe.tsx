@@ -1,6 +1,7 @@
 import Image from "next/image"
 
 import { Sparkles, Users, Globe, ChevronDown } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "./Reveal"
 
 export default function WhyChooseMe() {
     return (
@@ -9,7 +10,7 @@ export default function WhyChooseMe() {
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     {/* Left: Content */}
                     <div className="w-full lg:w-1/2 space-y-6">
-                        <div>
+                        <Reveal>
                             <span className="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary font-manrope font-semibold text-sm tracking-wider uppercase mb-4">
                                 Diferenciais
                             </span>
@@ -20,11 +21,11 @@ export default function WhyChooseMe() {
                                 Viver em Barcelona me deu a perspectiva real do que é ser imigrante.
                                 Unindo essa vivência à <strong className="text-primary">TCC</strong>, ofereço:
                             </p>
-                        </div>
+                        </Reveal>
 
-                        <div className="space-y-4">
+                        <RevealGroup className="space-y-4">
                             {/* Benefit 1 */}
-                            <div className="flex gap-4 items-start group">
+                            <RevealItem className="flex gap-4 items-start group">
                                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
                                     <Sparkles className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
                                 </div>
@@ -34,10 +35,10 @@ export default function WhyChooseMe() {
                                         Para lidar com a ansiedade e os desafios do dia a dia.
                                     </p>
                                 </div>
-                            </div>
+                            </RevealItem>
 
                             {/* Benefit 2 */}
-                            <div className="flex gap-4 items-start group">
+                            <RevealItem className="flex gap-4 items-start group">
                                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
                                     <Users className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
                                 </div>
@@ -47,10 +48,10 @@ export default function WhyChooseMe() {
                                         Você se torna protagonista da sua própria história.
                                     </p>
                                 </div>
-                            </div>
+                            </RevealItem>
 
                             {/* Benefit 3 */}
-                            <div className="flex gap-4 items-start group">
+                            <RevealItem className="flex gap-4 items-start group">
                                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
                                     <Globe className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
                                 </div>
@@ -60,12 +61,12 @@ export default function WhyChooseMe() {
                                         Entendo sua cultura, suas gírias e seu contexto.
                                     </p>
                                 </div>
-                            </div>
-                        </div>
+                            </RevealItem>
+                        </RevealGroup>
                     </div>
 
                     {/* Right: Quote Card */}
-                    <div className="w-full lg:w-1/2">
+                    <Reveal className="w-full lg:w-1/2">
                         <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-black/5">
                             {/* Quote Mark */}
                             <div className="absolute -top-4 left-6 text-6xl text-primary/20 font-serif leading-none">&ldquo;</div>
@@ -92,7 +93,7 @@ export default function WhyChooseMe() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </div>
 

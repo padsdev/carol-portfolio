@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronDown } from "lucide-react"
+import { Reveal } from "./Reveal"
 
 export default function SobreCTA() {
     return (
@@ -9,7 +10,7 @@ export default function SobreCTA() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-radial from-primary/10 to-transparent pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center max-w-3xl mx-auto">
+                <Reveal className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-manrope font-bold text-primary mb-6 drop-shadow-[0_0_30px_rgba(202,169,81,0.4)]">
                         Sua Saúde Importa!
                     </h2>
@@ -31,7 +32,7 @@ export default function SobreCTA() {
                         {/* Shine Effect */}
                         <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0"></div>
                     </a>
-                </div>
+                </Reveal>
             </div>
 
             {/* Scroll Indicator */}
