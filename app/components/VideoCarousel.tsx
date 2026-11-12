@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useEffect, useRef } from "react"
-import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion"
+import { LazyMotion, domAnimation, m, AnimatePresence, useReducedMotion } from "framer-motion"
 import Image from "next/image"
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react"
 
@@ -44,12 +44,13 @@ export default function VideoCarousel() {
     const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
     const [isPaused, setIsPaused] = useState(false)
     const intervalRef = useRef<NodeJS.Timeout | null>(null)
+    const reduceMotion = useReducedMotion()
 
     const total = VIDEOS.length
 
     // Auto-scroll: circular — wraps from last to first
     useEffect(() => {
-        if (isPaused || selectedVideo) {
+        if (isPaused || selectedVideo || reduceMotion) {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current)
                 intervalRef.current = null
@@ -65,7 +66,7 @@ export default function VideoCarousel() {
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current)
         }
-    }, [isPaused, selectedVideo, total])
+    }, [isPaused, selectedVideo, total, reduceMotion])
 
     const goTo = useCallback((idx: number) => {
         setDirection(idx > currentIndex ? 1 : -1)
@@ -157,7 +158,7 @@ export default function VideoCarousel() {
                             </div>
 
                             {/* Progress bar for auto-scroll */}
-                            {!isPaused && (
+                            {!isPaused && !reduceMotion && (
                                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
                                     <m.div
                                         className="h-full bg-primary"
