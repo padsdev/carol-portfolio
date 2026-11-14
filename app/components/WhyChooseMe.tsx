@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import { Sparkles, Users, Globe, ChevronDown } from "lucide-react"
-import { Reveal, RevealGroup, RevealItem } from "./Reveal"
+import { Reveal, RevealGroup, RevealItem, RevealIcon } from "./Reveal"
 
 export default function WhyChooseMe() {
     return (
@@ -26,9 +26,9 @@ export default function WhyChooseMe() {
                         <RevealGroup className="space-y-4">
                             {/* Benefit 1 */}
                             <RevealItem className="flex gap-4 items-start group">
-                                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+                                <RevealIcon className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
                                     <Sparkles className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
-                                </div>
+                                </RevealIcon>
                                 <div>
                                     <h4 className="font-manrope font-bold text-text-body mb-1">Ferramentas Práticas</h4>
                                     <p className="text-text-body/70 font-inter text-sm">
@@ -39,9 +39,9 @@ export default function WhyChooseMe() {
 
                             {/* Benefit 2 */}
                             <RevealItem className="flex gap-4 items-start group">
-                                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+                                <RevealIcon className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
                                     <Users className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
-                                </div>
+                                </RevealIcon>
                                 <div>
                                     <h4 className="font-manrope font-bold text-text-body mb-1">Autonomia</h4>
                                     <p className="text-text-body/70 font-inter text-sm">
@@ -52,9 +52,9 @@ export default function WhyChooseMe() {
 
                             {/* Benefit 3 */}
                             <RevealItem className="flex gap-4 items-start group">
-                                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+                                <RevealIcon className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
                                     <Globe className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
-                                </div>
+                                </RevealIcon>
                                 <div>
                                     <h4 className="font-manrope font-bold text-text-body mb-1">Conexão Cultural</h4>
                                     <p className="text-text-body/70 font-inter text-sm">

@@ -1,5 +1,5 @@
 import { ArrowRight, ChevronDown } from "lucide-react"
-import { Reveal } from "./Reveal"
+import { Reveal, RevealCta } from "./Reveal"
 import { AGENDA_URL } from "../lib/channels"
 
 export default function SobreCTA() {
@@ -20,19 +20,21 @@ export default function SobreCTA() {
                         ou alguém que deseja se conectar com um grupo de apoio, estou aqui para caminhar ao seu lado.
                         Juntos, podemos explorar novos caminhos e encontrar o equilíbrio necessário para uma vida mais significativa.
                     </p>
-                    <a
-                        href={AGENDA_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full bg-primary text-white font-bold font-manrope shadow-xl hover:shadow-2xl hover:scale-105 hover:bg-primary/90 transition-all duration-300 overflow-hidden"
-                    >
-                        <span className="relative z-10 flex items-center gap-3">
-                            Escolher horário
-                            <ArrowRight className="w-5 h-5" />
-                        </span>
-                        {/* Shine Effect */}
-                        <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0"></div>
-                    </a>
+                    <RevealCta>
+                        <a
+                            href={AGENDA_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full bg-primary text-white font-bold font-manrope shadow-xl hover:shadow-2xl hover:scale-105 hover:bg-primary/90 transition-all duration-300 overflow-hidden"
+                        >
+                            <span className="relative z-10 flex items-center gap-3">
+                                Escolher horário
+                                <ArrowRight className="w-5 h-5" />
+                            </span>
+                            {/* Shine Effect */}
+                            <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-all duration-700 ease-in-out group-hover:left-[100%] z-0"></div>
+                        </a>
+                    </RevealCta>
                 </Reveal>
             </div>
 

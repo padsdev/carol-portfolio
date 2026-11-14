@@ -1,5 +1,5 @@
 import { GraduationCap, Building2, BookOpen, Award, ChevronDown } from "lucide-react"
-import { Reveal, RevealGroup, RevealItem } from "./Reveal"
+import { Reveal, RevealGroup, RevealItem, RevealIcon } from "./Reveal"
 
 export default function AcademicSection() {
     return (
@@ -20,9 +20,9 @@ export default function AcademicSection() {
                 <RevealGroup className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     {/* Card 1: USP */}
                     <RevealItem className="group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <RevealIcon className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                             <GraduationCap className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
-                        </div>
+                        </RevealIcon>
                         <h3 className="text-lg font-manrope font-bold text-text-body mb-2">
                             Instituto de Psiquiatria da USP
                         </h3>
@@ -33,9 +33,9 @@ export default function AcademicSection() {
 
                     {/* Card 2: Instituto Versar */}
                     <RevealItem className="group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <RevealIcon className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                             <Building2 className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
-                        </div>
+                        </RevealIcon>
                         <h3 className="text-lg font-manrope font-bold text-text-body mb-2">
                             Instituto Versar de Saúde Mental
                         </h3>
@@ -46,9 +46,9 @@ export default function AcademicSection() {
 
                     {/* Card 3: Autora */}
                     <RevealItem className="group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <RevealIcon className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                             <BookOpen className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
-                        </div>
+                        </RevealIcon>
                         <h3 className="text-lg font-manrope font-bold text-text-body mb-2">
                             Autora e Pesquisadora
                         </h3>

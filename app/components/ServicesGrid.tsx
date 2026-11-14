@@ -1,6 +1,6 @@
 import { User, Users, Mic2 } from "lucide-react";
 import Link from "next/link";
-import { Reveal, RevealGroup, RevealItem } from "./Reveal";
+import { Reveal, RevealGroup, RevealItem, RevealIcon, RevealCta } from "./Reveal";
 
 const services = [
     {
@@ -44,9 +44,9 @@ export default function ServicesGrid() {
                         key={service.id}
                         className="group bg-surface rounded-[40px] p-8 shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-2 border border-transparent hover:border-primary/20 flex flex-col items-center text-center"
                     >
-                        <div className="w-16 h-16 rounded-2xl bg-secondary/20 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <RevealIcon className="w-16 h-16 rounded-2xl bg-secondary/20 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <service.icon size={32} strokeWidth={1.5} />
-                        </div>
+                        </RevealIcon>
 
                         <h3 className="text-xl font-bold text-[#435770] font-manrope mb-4">
                             {service.title}
@@ -56,13 +56,15 @@ export default function ServicesGrid() {
                             {service.description}
                         </p>
 
-                        <Link
-                            href={service.href}
-                            className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 text-primary font-manrope font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300"
-                        >
-                            Saiba Mais
-                            <span className="block transition-transform duration-300 group-hover:translate-x-1">→</span>
-                        </Link>
+                        <RevealCta>
+                            <Link
+                                href={service.href}
+                                className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 text-primary font-manrope font-bold text-sm group-hover:bg-primary group-hover:text-white transition-all duration-300"
+                            >
+                                Saiba Mais
+                                <span className="block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                            </Link>
+                        </RevealCta>
                     </RevealItem>
                 ))}
             </RevealGroup>
