@@ -5,7 +5,6 @@ import PalestrasSection from "../components/PalestrasSection"
 import VideosSection from "../components/VideosSection"
 
 import Footer from "../components/Footer"
-import BackToTopButton from "../components/BackToTopButton"
 import { Reveal } from "../components/Reveal"
 import { AGENDA_URL } from "../lib/channels"
 
@@ -95,8 +94,6 @@ export default function ServicosPage() {
                     </section>
                 </div>
             </section>
-
-            <BackToTopButton />
         </main>
     )
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import BackToTopButton from "./components/BackToTopButton";
 import { ViewTransitions } from "next-view-transitions";
 
 const manrope = Manrope({
@@ -40,6 +41,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <BackToTopButton />
         </body>
       </html>
     </ViewTransitions>

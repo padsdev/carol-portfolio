@@ -1,9 +1,9 @@
 import VideoCarousel from "./VideoCarousel"
-import { Reveal } from "./Reveal"
+import { RevealRoot, Reveal } from "./Reveal"
 
 export default function VideosSection() {
     return (
-        <section className="py-20 md:py-28 bg-background">
+        <RevealRoot as="section" className="py-20 md:py-28 bg-background">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <Reveal className="text-center mb-12">
@@ -14,11 +14,11 @@ export default function VideosSection() {
                             Confira algumas das minhas participações em eventos e mídias
                         </p>
                     </Reveal>
-                    <Reveal>
+                    <Reveal tone="panel">
                         <VideoCarousel />
                     </Reveal>
                 </div>
             </div>
-        </section>
+        </RevealRoot>
     )
 }

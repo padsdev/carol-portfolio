@@ -1,9 +1,10 @@
 import { GraduationCap, Building2, BookOpen, Award, ChevronDown } from "lucide-react"
-import { Reveal, RevealGroup, RevealItem } from "./Reveal"
+import { RevealRoot, Reveal, RevealGroup, RevealItem } from "./Reveal"
+import { cardHoverClass } from "./sectionMotion"
 
 export default function AcademicSection() {
     return (
-        <section className="snap-section bg-white">
+        <RevealRoot as="section" className="snap-section bg-white">
             <div className="container mx-auto px-6 py-8">
                 <Reveal className="text-center mb-10">
                     <span className="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary font-manrope font-semibold text-sm tracking-wider uppercase mb-4">
@@ -18,9 +19,8 @@ export default function AcademicSection() {
                 </Reveal>
 
                 <RevealGroup className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    {/* Card 1: USP */}
-                    <RevealItem className="group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <RevealItem className={`group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 ${cardHoverClass}`}>
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-[background-color,scale] duration-300">
                             <GraduationCap className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
                         </div>
                         <h3 className="text-lg font-manrope font-bold text-text-body mb-2">
@@ -31,9 +31,8 @@ export default function AcademicSection() {
                         </p>
                     </RevealItem>
 
-                    {/* Card 2: Instituto Versar */}
-                    <RevealItem className="group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <RevealItem className={`group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 ${cardHoverClass}`}>
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-[background-color,scale] duration-300">
                             <Building2 className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
                         </div>
                         <h3 className="text-lg font-manrope font-bold text-text-body mb-2">
@@ -44,9 +43,8 @@ export default function AcademicSection() {
                         </p>
                     </RevealItem>
 
-                    {/* Card 3: Autora */}
-                    <RevealItem className="group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <RevealItem className={`group bg-background p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:-translate-y-2 ${cardHoverClass}`}>
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-[background-color,scale] duration-300">
                             <BookOpen className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
                         </div>
                         <h3 className="text-lg font-manrope font-bold text-text-body mb-2">
@@ -58,8 +56,7 @@ export default function AcademicSection() {
                     </RevealItem>
                 </RevealGroup>
 
-                {/* Additional Experience Text */}
-                <Reveal className="mt-8 max-w-3xl mx-auto text-center">
+                <Reveal tone="panel" className="mt-8 max-w-3xl mx-auto text-center">
                     <div className="bg-secondary/20 p-6 rounded-3xl border border-primary/10">
                         <Award className="w-8 h-8 text-primary mx-auto mb-3" />
                         <p className="text-text-body font-inter text-sm leading-relaxed">
@@ -71,10 +68,9 @@ export default function AcademicSection() {
                 </Reveal>
             </div>
 
-            {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
                 <ChevronDown className="w-5 h-5 text-text-body/30 scroll-indicator" />
             </div>
-        </section>
+        </RevealRoot>
     )
 }
