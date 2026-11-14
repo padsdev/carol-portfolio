@@ -1,10 +1,11 @@
 import { Heart, Users, GraduationCap, ArrowRight, ChevronDown } from "lucide-react"
-import { Reveal, RevealGroup, RevealItem, RevealIcon, RevealCta } from "./Reveal"
+import { RevealRoot, Reveal, RevealGroup, RevealItem } from "./Reveal"
 import { AGENDA_URL, SECRETARIA_MESSAGE, secretariaWhatsApp } from "../lib/channels"
+import { cardHoverClass } from "./sectionMotion"
 
 export default function SobreServices() {
     return (
-        <section className="snap-section bg-white">
+        <RevealRoot as="section" className="snap-section bg-white">
             <div className="container mx-auto px-6 py-8">
                 <Reveal className="text-center mb-10">
                     <span className="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary font-manrope font-semibold text-sm tracking-wider uppercase mb-4">
@@ -19,90 +20,80 @@ export default function SobreServices() {
                 </Reveal>
 
                 <RevealGroup className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    {/* Service 1: Individual */}
-                    <RevealItem className="group relative bg-background p-6 rounded-3xl border border-black/5 hover:border-primary/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    <RevealItem className={`group relative bg-background p-6 rounded-3xl border border-black/5 hover:border-primary/20 hover:shadow-2xl ${cardHoverClass} overflow-hidden`}>
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div className="relative z-10">
-                            <RevealIcon className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-[scale] duration-300">
                                 <Heart className="w-7 h-7 text-primary" />
-                            </RevealIcon>
+                            </div>
                             <h3 className="text-lg font-manrope font-bold text-primary mb-2">
                                 Psicoterapia Individual
                             </h3>
                             <p className="text-text-body/70 font-inter text-sm leading-relaxed mb-4">
                                 Espaço seguro para autoconhecimento. Sessões de 45min a 1h.
                             </p>
-                            <RevealCta>
-                                <a
-                                    href={AGENDA_URL}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
-                                >
-                                    Agenda Online <ArrowRight className="w-4 h-4" />
-                                </a>
-                            </RevealCta>
+                            <a
+                                href={AGENDA_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-[gap] duration-300"
+                            >
+                                Agenda Online <ArrowRight className="w-4 h-4" />
+                            </a>
                         </div>
                     </RevealItem>
 
-                    {/* Service 2: Casal */}
-                    <RevealItem className="group relative bg-background p-6 rounded-3xl border border-black/5 hover:border-primary/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    <RevealItem className={`group relative bg-background p-6 rounded-3xl border border-black/5 hover:border-primary/20 hover:shadow-2xl ${cardHoverClass} overflow-hidden`}>
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div className="relative z-10">
-                            <RevealIcon className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-[scale] duration-300">
                                 <Users className="w-7 h-7 text-primary" />
-                            </RevealIcon>
+                            </div>
                             <h3 className="text-lg font-manrope font-bold text-primary mb-2">
                                 Psicoterapia de Casal
                             </h3>
                             <p className="text-text-body/70 font-inter text-sm leading-relaxed mb-4">
                                 Melhorem a comunicação e encontrem soluções juntos. 1h30min.
                             </p>
-                            <RevealCta>
-                                <a
-                                    href={AGENDA_URL}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
-                                >
-                                    Agenda Online <ArrowRight className="w-4 h-4" />
-                                </a>
-                            </RevealCta>
+                            <a
+                                href={AGENDA_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-[gap] duration-300"
+                            >
+                                Agenda Online <ArrowRight className="w-4 h-4" />
+                            </a>
                         </div>
                     </RevealItem>
 
-                    {/* Service 3: Palestras */}
-                    <RevealItem className="group relative bg-background p-6 rounded-3xl border border-black/5 hover:border-primary/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    <RevealItem className={`group relative bg-background p-6 rounded-3xl border border-black/5 hover:border-primary/20 hover:shadow-2xl ${cardHoverClass} overflow-hidden`}>
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div className="relative z-10">
-                            <RevealIcon className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-[scale] duration-300">
                                 <GraduationCap className="w-7 h-7 text-primary" />
-                            </RevealIcon>
+                            </div>
                             <h3 className="text-lg font-manrope font-bold text-primary mb-2">
                                 Palestras e Workshops
                             </h3>
                             <p className="text-text-body/70 font-inter text-sm leading-relaxed mb-4">
                                 Saúde mental para empresas: Burnout, inteligência emocional.
                             </p>
-                            <RevealCta>
-                                <a
-                                    href={secretariaWhatsApp(SECRETARIA_MESSAGE)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-all duration-300"
-                                >
-                                    Falar com a Secretaria <ArrowRight className="w-4 h-4" />
-                                </a>
-                            </RevealCta>
+                            <a
+                                href={secretariaWhatsApp(SECRETARIA_MESSAGE)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-primary font-manrope font-semibold text-sm group-hover:gap-3 transition-[gap] duration-300"
+                            >
+                                Falar com a Secretaria <ArrowRight className="w-4 h-4" />
+                            </a>
                         </div>
                     </RevealItem>
                 </RevealGroup>
             </div>
 
-            {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
                 <ChevronDown className="w-5 h-5 text-text-body/30 scroll-indicator" />
             </div>
-        </section>
+        </RevealRoot>
     )
 }

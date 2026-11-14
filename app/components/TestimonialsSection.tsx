@@ -1,7 +1,7 @@
 "use client"
 
 import { Star, ExternalLink } from "lucide-react"
-import { Reveal, RevealGroup, RevealItem } from "./Reveal"
+import { RevealRoot, Reveal, RevealGroup, RevealItem } from "./Reveal"
 
 const STAR_KEYS = ["s1", "s2", "s3", "s4", "s5"] as const
 
@@ -34,7 +34,7 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
     return (
-        <section className="py-20 bg-secondary/30 flex-1 flex flex-col">
+        <RevealRoot as="section" className="py-20 bg-secondary/30 flex-1 flex flex-col">
             <div className="container mx-auto px-4 my-auto">
                 <Reveal className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-manrope font-bold text-primary mb-4">
@@ -101,6 +101,6 @@ export default function TestimonialsSection() {
                     ))}
                 </RevealGroup>
             </div>
-        </section>
+        </RevealRoot>
     )
 }

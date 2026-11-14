@@ -1,144 +1,184 @@
 "use client"
 
-import { useRef, type ReactNode } from "react"
-import { LazyMotion, domAnimation, m, useInView, useReducedMotion } from "framer-motion"
+import {
+    createContext,
+    useContext,
+    useRef,
+    type ReactNode,
+    type RefObject,
+} from "react"
+import {
+    LazyMotion,
+    domAnimation,
+    m,
+    useInView,
+    useReducedMotion,
+} from "framer-motion"
+import {
+    cardContainerVariants,
+    cardVariants,
+    ctaVariants,
+    featureVariants,
+    iconVariants,
+    inViewOpts,
+    panelVariants,
+    sectionTitleVariants,
+} from "./sectionMotion"
 
-const inViewOpts = { once: true, amount: 0.3 } as const
-
-/** Matches ServiceDetail title slide — not the hero titleVariants (y). */
-const titleVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            duration: 0.6,
-            delay: 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-        },
-    },
+type Gate = {
+    initial: false | "hidden"
+    animate: "hidden" | "visible"
 }
 
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.08,
-            delayChildren: 0.25,
-        },
-    },
-}
-
-/** Grid/list cards — spring enter, no 3D. */
-const cardVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: {
-            type: "spring" as const,
-            stiffness: 200,
-            damping: 20,
-        },
-    },
-}
-
-const iconVariants = {
-    hidden: { scale: 0, rotate: -180, opacity: 0 },
-    visible: {
-        scale: 1,
-        rotate: 0,
-        opacity: 1,
-        transition: {
-            type: "spring" as const,
-            stiffness: 200,
-            damping: 15,
-        },
-    },
-}
-
-const ctaVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.5,
-            delay: 0.15,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-        },
-    },
-}
+const MotionGate = createContext<Gate | null>(null)
 
 type Props = { children: ReactNode; className?: string }
 
-function useRevealMotion() {
-    const ref = useRef<HTMLDivElement>(null)
+function useOwnGate(): Gate & { ref: RefObject<HTMLElement | null> } {
+    const ref = useRef<HTMLElement | null>(null)
     const isInView = useInView(ref, inViewOpts)
     const reduceMotion = useReducedMotion()
     return {
         ref,
-        initial: reduceMotion ? false : ("hidden" as const),
-        animate: reduceMotion || isInView ? ("visible" as const) : ("hidden" as const),
+        initial: reduceMotion ? false : "hidden",
+        animate: reduceMotion || isInView ? "visible" : "hidden",
     }
 }
 
-export function Reveal({ children, className }: Props) {
-    const { ref, initial, animate } = useRevealMotion()
+function useGate(): Gate & { ref?: RefObject<HTMLElement | null> } {
+    const ctx = useContext(MotionGate)
+    const own = useOwnGate()
+    return ctx ?? own
+}
+
+function MaybeLazy({ nested, children }: { nested: boolean; children: ReactNode }) {
+    if (nested) return children
+    return <LazyMotion features={domAnimation}>{children}</LazyMotion>
+}
+
+type RootProps = Props & { as?: "div" | "section"; id?: string }
+
+/** One inView on the section/block — same gate pattern as ServiceDetail. */
+export function RevealRoot({ children, className, as = "div", id }: RootProps) {
+    const gate = useOwnGate()
+    const body = (
+        <MotionGate.Provider value={{ initial: gate.initial, animate: gate.animate }}>
+            {children}
+        </MotionGate.Provider>
+    )
     return (
         <LazyMotion features={domAnimation}>
+            {as === "section" ? (
+                <section
+                    ref={gate.ref as RefObject<HTMLElement | null>}
+                    id={id}
+                    className={className}
+                >
+                    {body}
+                </section>
+            ) : (
+                <div
+                    ref={gate.ref as RefObject<HTMLDivElement | null>}
+                    id={id}
+                    className={className}
+                >
+                    {body}
+                </div>
+            )}
+        </LazyMotion>
+    )
+}
+
+type RevealProps = Props & { tone?: "title" | "panel"; panelDir?: 1 | -1 }
+
+export function Reveal({
+    children,
+    className,
+    tone = "title",
+    panelDir = 1,
+}: RevealProps) {
+    const nested = useContext(MotionGate) !== null
+    const gate = useGate()
+    const isPanel = tone === "panel"
+    return (
+        <MaybeLazy nested={nested}>
             <m.div
-                ref={ref}
+                ref={nested ? undefined : (gate.ref as RefObject<HTMLDivElement | null>)}
                 className={className}
-                variants={titleVariants}
-                initial={initial}
-                animate={animate}
+                custom={panelDir}
+                variants={isPanel ? panelVariants : sectionTitleVariants}
+                initial={gate.initial}
+                animate={gate.animate}
             >
                 {children}
             </m.div>
-        </LazyMotion>
+        </MaybeLazy>
     )
 }
 
 export function RevealGroup({ children, className }: Props) {
-    const { ref, initial, animate } = useRevealMotion()
+    const nested = useContext(MotionGate) !== null
+    const gate = useGate()
     return (
-        <LazyMotion features={domAnimation}>
+        <MaybeLazy nested={nested}>
             <m.div
-                ref={ref}
+                ref={nested ? undefined : (gate.ref as RefObject<HTMLDivElement | null>)}
                 className={className}
-                variants={containerVariants}
-                initial={initial}
-                animate={animate}
+                variants={cardContainerVariants}
+                initial={gate.initial}
+                animate={gate.animate}
             >
                 {children}
             </m.div>
-        </LazyMotion>
+        </MaybeLazy>
     )
 }
 
-export function RevealItem({ children, className }: Props) {
+type ItemProps = Props & { tone?: "card" | "list" }
+
+export function RevealItem({ children, className, tone = "card" }: ItemProps) {
     return (
-        <m.div className={className} variants={cardVariants}>
+        <m.div
+            className={className}
+            variants={tone === "list" ? featureVariants : cardVariants}
+        >
             {children}
         </m.div>
     )
 }
 
-/** Nested under RevealItem/Group — icon pop like ServiceDetail. */
 export function RevealIcon({ children, className }: Props) {
+    const nested = useContext(MotionGate) !== null
+    const gate = useGate()
     return (
-        <m.div className={className} variants={iconVariants}>
-            {children}
-        </m.div>
+        <MaybeLazy nested={nested}>
+            <m.div
+                ref={nested ? undefined : (gate.ref as RefObject<HTMLDivElement | null>)}
+                className={className}
+                variants={iconVariants}
+                initial={gate.initial}
+                animate={gate.animate}
+            >
+                {children}
+            </m.div>
+        </MaybeLazy>
     )
 }
 
 export function RevealCta({ children, className }: Props) {
+    const nested = useContext(MotionGate) !== null
+    const gate = useGate()
     return (
-        <m.div className={className} variants={ctaVariants}>
-            {children}
-        </m.div>
+        <MaybeLazy nested={nested}>
+            <m.div
+                ref={nested ? undefined : (gate.ref as RefObject<HTMLDivElement | null>)}
+                className={className}
+                variants={ctaVariants}
+                initial={gate.initial}
+                animate={gate.animate}
+            >
+                {children}
+            </m.div>
+        </MaybeLazy>
     )
 }
