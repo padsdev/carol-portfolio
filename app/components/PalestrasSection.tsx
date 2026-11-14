@@ -12,6 +12,7 @@ import {
     inViewOpts,
     sectionTitleVariants,
 } from "./sectionMotion"
+import { SECRETARIA_MESSAGE, secretariaWhatsApp } from "../lib/channels"
 
 const solutions = [
     {
@@ -91,13 +92,13 @@ export default function PalestrasSection() {
                                         animate={animate}
                                     >
                                         <a
-                                            href="https://wa.link/ufs2ot"
+                                            href={secretariaWhatsApp(SECRETARIA_MESSAGE)}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#4B4B47] text-white font-manrope font-bold shadow-[0_10px_20px_rgba(75,75,71,0.2)] hover:bg-primary hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] transition-[background-color,box-shadow,translate,scale] duration-400 hover:-translate-y-0.5 hover:scale-[1.03] overflow-hidden"
                                         >
                                             <span className="relative z-10 flex items-center gap-3">
-                                                Solicitar Proposta
+                                                Falar com a Secretaria
                                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                                             </span>
                                             <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transition-[left] duration-700 ease-in-out group-hover:left-[100%] z-0" />
